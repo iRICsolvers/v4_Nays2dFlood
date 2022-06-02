@@ -27,7 +27,7 @@
 		double precision,dimension(0:im,0:jm),intent(in) :: u,v,hs,z,z0
 		double precision,dimension(0:im,0:jm),intent(in) :: h_max,v_max
 		double precision,dimension(0:im,0:jm),intent(in) :: x, y
-!h160123 Xrain‘Î‰ž
+!h160123 Xrainï¿½Î‰ï¿½
 		INTEGER, INTENT(IN) :: j_rain
 		double precision,dimension(0:im,0:jm),intent(in) :: rain
 
@@ -37,8 +37,8 @@
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: Vdata1, Udata1, Hdata1, Zbdata1, WSE
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: Vdata2, Hdata2
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: xx, yy
-		double precision, ALLOCATABLE, DIMENSION(:,:) :: Rdata	!h160123 Xrain‘Î‰ž
-        integer, ALLOCATABLE, DIMENSION(:,:) :: ibc0	!h160123 Xrain‘Î‰ž
+		double precision, ALLOCATABLE, DIMENSION(:,:) :: Rdata	!h160123 Xrainï¿½Î‰ï¿½
+        integer, ALLOCATABLE, DIMENSION(:,:) :: ibc0	!h160123 Xrainï¿½Î‰ï¿½
 
 		nx = im+1
 		ny = jm+1
@@ -93,7 +93,7 @@
 		ALLOCATE(Hdata2(nx, ny), STAT=ier)
 		ALLOCATE(Zbdata1(nx, ny), STAT=ier)
 		ALLOCATE(WSE(nx, ny), STAT=ier)
-		ALLOCATE(Rdata(nx, ny), STAT=ier)	!h160123 Xrain‘Î‰ž
+		ALLOCATE(Rdata(nx, ny), STAT=ier)	!h160123 Xrainï¿½Î‰ï¿½
         ALLOCATE(ibc0(nx, ny), STAT=ier)
 
 		DO j=1,NY
@@ -112,16 +112,16 @@
 			ENDDO
 		ENDDO
 
-		CALL CG_IRIC_WRITE_SOL_GRIDCOORD2D(fid,xx,yy,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Velocity(ms-1)X",UData1,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Velocity(ms-1)Y",VData1,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Depth(Max)",HData2,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Depth",HData1,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Elevation",Zbdata1,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"WaterSurfaceElevation",WSE,IER)
-		if(j_rain>=2) CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Rain(mmh-1)",Rdata,IER)
-		CALL CG_IRIC_WRITE_SOL_REAL_NODE(fid,"Velocity (magnitude Max)",VData2,IER)
-        !CALL CG_IRIC_WRITE_SOL_integer(fid,"IBC",ibc0,IER)
+		CALL cg_iric_write_sol_grid2d_coords(fid,xx,yy,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Velocity(ms-1)X",UData1,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Velocity(ms-1)Y",VData1,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Depth(Max)",HData2,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Depth",HData1,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Elevation",Zbdata1,IER)
+		CALL cg_iric_write_sol_node_real(fid,"WaterSurfaceElevation",WSE,IER)
+		if(j_rain>=2) CALL cg_iric_write_sol_node_real(fid,"Rain(mmh-1)",Rdata,IER)
+		CALL cg_iric_write_sol_node_real(fid,"Velocity (magnitude Max)",VData2,IER)
+        CALL cg_iric_write_sol_node_integer(fid,"IBC",ibc0,IER)
 		
 		DEALLOCATE(xx, STAT=ier)
 		DEALLOCATE(yy, STAT=ier)

@@ -603,7 +603,7 @@ module initl_m		! --------------------------------------------------------------
 				end do
 			end do
 !i
-!i 初期水面形が一定勾配も利用できるように。
+!i ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽz?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽp?ｿｽﾅゑｿｽ?ｿｽ?ｿｽ謔､?ｿｽﾉ。
 !i
 			if( j_side1==1 ) then
 				do i=1,nx
@@ -627,7 +627,7 @@ module initl_m		! --------------------------------------------------------------
 !i
 		end if
 !
-			! ---- 氾濫計算ではslopeが求められないので無効にする ----
+			! ---- ?ｿｽﾃ暦ｿｽ?ｿｽv?ｿｽZ?ｿｽﾅゑｿｽslope?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾟゑｿｽ?ｿｽﾈゑｿｽ?ｿｽﾌで厄ｿｽ?ｿｽ?ｿｽ?ｿｽﾉゑｿｽ?ｿｽ?ｿｽ ----
 
 !		do i=1,nx-1
 !			qc(i)=0.d0
@@ -653,7 +653,7 @@ module initl_m		! --------------------------------------------------------------
 !			end do
 !		end do
 !
-			! ---- 氾濫計算では初期流速は0 ----
+			! ---- ?ｿｽﾃ暦ｿｽ?ｿｽv?ｿｽZ?ｿｽﾅは擾ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ0 ----
 
 		do j=1-j_side1,ny+j_side2
 			do i=1,nx-1
@@ -756,7 +756,7 @@ end module initl_m		! ----------------------------------------------------------
 	end subroutine hshift
 !
 ! --------------------------------------------------------------------
-	subroutine snucal(snu00,a_snu,b_snu)	!inoue 渦動粘性係数の補正
+	subroutine snucal(snu00,a_snu,b_snu)	!inoue ?ｿｽQ?ｿｽ?ｿｽ?ｿｽS?ｿｽ?ｿｽ?ｿｽW?ｿｽ?ｿｽ?ｿｽﾌ補正
 		use common_hh
 		use variables
 		implicit none
@@ -845,7 +845,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(upv_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! ?ｿｽ纓ｬ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊの計?ｿｽZ
 !
 		do ii=1,j_in
 			do n=0,nq
@@ -943,7 +943,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(vpv1_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! ?ｿｽ纓ｬ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊの計?ｿｽZ
 !
 		do ii=1,jsin1
 			do n=0,nq
@@ -1036,7 +1036,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(vpv2_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! ?ｿｽ纓ｬ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊの計?ｿｽZ
 !
 		do ii=1,jsin2
 			do n=0,nq
@@ -1380,7 +1380,7 @@ program nays2d_flood_parallel
 				, kmod, ndry, lcount, iofrg, ndeposit, n_parallel,total_bomb, qtmpin, nqtcell
 	double precision :: skp, snu00, h_down, bh_slope, upv_slope, h_slope	&
 						, x_bk, h_slope_1, h_slope_2, e_thic, tantc	&
-						, t_out_start, alh, slambda, rho, a_snu, b_snu	&	!inoue 渦動粘性係数の補正
+						, t_out_start, alh, slambda, rho, a_snu, b_snu	&	!inoue ?ｿｽQ?ｿｽ?ｿｽ?ｿｽS?ｿｽ?ｿｽ?ｿｽW?ｿｽ?ｿｽ?ｿｽﾌ補正
 						, snst, r_tantc, t_xx, thstart, qp, etime	&
 						, d10, d50, d90, dm0, sn_g, cw, sigma_c, calculated_slope	&
 						, slope, hs_dse	&
@@ -1392,7 +1392,7 @@ program nays2d_flood_parallel
 	double precision,dimension(:),allocatable :: q_tmp_dis, ni_dis_cell
 	double precision,dimension(:,:),allocatable :: q_cell_dis
 
-!inoue 建物阻害率 hamaki ver
+!inoue ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽj?ｿｽQ?ｿｽ?ｿｽ hamaki ver
 	double precision,dimension(:,:),allocatable :: sh4
 	integer :: j_gam
 !inoue
@@ -1421,7 +1421,7 @@ program nays2d_flood_parallel
 	write(*,*) 'Copyright(C) by Yasuyuki Shimizu, Hokkaido Univ., Japan'
 	write(*,*) 'Modified by Ichiro Kimura, Toshiki Iwasaki, Satomi Kawamura, Takuya Inoue , Michihiro Hamaki , Takeshi Takemura'
 
-	call system_clock(cal_t1)	!h160105 計算開始時時刻
+	call system_clock(cal_t1)	!h160105 ?ｿｽv?ｿｽZ?ｿｽJ?ｿｽn?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 
 	icount = nargs() 	!for intelfortran
 !	icount = iargc()	!for gfortran
@@ -1448,12 +1448,12 @@ program nays2d_flood_parallel
 
 	CALL cg_iric_open(trim(condFile), IRIC_MODE_MODIFY, FID, IER)
 
-	CALL CG_IRIC_INIT(FID, IER)
-	IF(IER .NE. 0) THEN
-		call cg_error_print()
-	ENDIF
+	! CALL CG_IRIC_INIT(FID, IER)
+	! IF(IER .NE. 0) THEN
+	! 	call cg_error_print()
+	! ENDIF
 
-   !guiにcgnsファイルを読込みであることを知らせるファイルを生成
+   !gui?ｿｽ?ｿｽcgns?ｿｽt?ｿｽ@?ｿｽC?ｿｽ?ｿｽ?ｿｽ?ｿｽﾇ搾ｿｽ?ｿｽﾝでゑｿｽ?ｿｽ驍ｱ?ｿｽﾆゑｿｽm?ｿｽ轤ｹ?ｿｽ?ｿｽt?ｿｽ@?ｿｽC?ｿｽ?ｿｽ?ｿｽ?ｶ撰ｿｽ
    call iric_initoption(IRIC_OPTION_CANCEL, ier)
 
 ! ---- Read computational condition ----
@@ -1463,80 +1463,80 @@ program nays2d_flood_parallel
 
 	CALL CG_IRIC_READ_INTEGER(fid,'j_wl', j_wl, ier) !i
 !
-!			j_wl = 0 ...下流端水位一定値を与える(h_down)
-!			j_wl = 1 ...下流端水位は等流計算で求める⇒!iはん濫モデルでは等流起算なし
-!			j_wl = 2 ...下流端水位はファイルから読み込む
-!			j_wl = 3 ...下流端の水深は，前のグリットのコピーにする
+!			j_wl = 0 ...?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊ茨ｿｽ?ｿｽl?ｿｽ?ｿｽ^?ｿｽ?ｿｽ?ｿｽ?ｿｽ(h_down)
+!			j_wl = 1 ...?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊは難ｿｽ?ｿｽ?ｿｽ?ｿｽv?ｿｽZ?ｿｽﾅ具ｿｽ?ｿｽﾟゑｿｽ?ｿｽ!i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは難ｿｽ?ｿｽ?ｿｽ?ｿｽN?ｿｽZ?ｿｽﾈゑｿｽ
+!			j_wl = 2 ...?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊはフ?ｿｽ@?ｿｽC?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾇみ搾ｿｽ?ｿｽ?ｿｽ
+!			j_wl = 3 ...?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽﾌ撰ｿｽ?ｿｽ[?ｿｽﾍ，?ｿｽO?ｿｽﾌグ?ｿｽ?ｿｽ?ｿｽb?ｿｽg?ｿｽﾌコ?ｿｽs?ｿｽ[?ｿｽﾉゑｿｽ?ｿｽ?ｿｽ
 
 
 	CALL CG_IRIC_READ_REAL(fid,'h_down', h_down, ier)
 !
-!			h_dwown = 下流端水位の値(上記j_wl=0の時のみ有効)
+!			h_dwown = ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽﾊの値(?ｿｽ?ｿｽLj_wl=0?ｿｽﾌ趣ｿｽ?ｿｽﾌみ有?ｿｽ?ｿｽ)
 !
 
 	CALL CG_IRIC_READ_INTEGER(fid,'j_rain', j_rain, ier) !i
 !
-!			j_rain =1	降雨なし
-!			j_rain =2	降雨あり(全領域同じ時系列データ)
-!			j_rain =3	降雨あり(Xrain対応)
+!			j_rain =1	?ｿｽ~?ｿｽJ?ｿｽﾈゑｿｽ
+!			j_rain =2	?ｿｽ~?ｿｽJ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽS?ｿｽﾌ域同?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽn?ｿｽ?ｿｽf?ｿｽ[?ｿｽ^)
+!			j_rain =3	?ｿｽ~?ｿｽJ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(Xrain?ｿｽﾎ会ｿｽ)
 !
 
-	j_slope=0  		!iはん濫モデルでは等流起算なし
+	j_slope=0  		!i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは難ｿｽ?ｿｽ?ｿｽ?ｿｽN?ｿｽZ?ｿｽﾈゑｿｽ
 
-	bh_slope=0.  	!iはん濫モデルでは等流起算なし
+	bh_slope=0.  	!i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは難ｿｽ?ｿｽ?ｿｽ?ｿｽN?ｿｽZ?ｿｽﾈゑｿｽ
 !
 ! ------ Parameters for Upstream Boundary ------
 
-	j_upv = 1   	 !iはん濫モデルでは使わない。ダミーデータ
+	j_upv = 1   	 !i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽ?ｿｽﾈゑｿｽ?ｿｽB?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽf?ｿｽ[?ｿｽ^
 !
-!			j_upv =1 上流端の流速を等流計算で与える
-!			j_upv =2 上流端の流速を、上流端の水深を使って流量から逆算する
+!			j_upv =1 ?ｿｽ纓ｬ?ｿｽ[?ｿｽﾌ暦ｿｽ?ｿｽ?ｿｽ?ｿｽ?剽?ｿｽ?ｿｽv?ｿｽZ?ｿｽﾅ与?ｿｽ?ｿｽ?ｿｽ?ｿｽ
+!			j_upv =2 ?ｿｽ纓ｬ?ｿｽ[?ｿｽﾌ暦ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽA?ｿｽ纓ｬ?ｿｽ[?ｿｽﾌ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽg?ｿｽ?ｿｽ?ｿｽﾄ暦ｿｽ?ｿｽﾊゑｿｽ?ｿｽ?ｿｽt?ｿｽZ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 !
-	j_upv_slope=1      !iはん濫モデルでは使わない。ダミーデータ
+	j_upv_slope=1      !i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽ?ｿｽﾈゑｿｽ?ｿｽB?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽf?ｿｽ[?ｿｽ^
 !
-!			上記j_upv=1のときの等流計算に使用する勾配の与え方
-!			j_upv_slope=0 .... 河床データから自動的に計算
-!			j_upv_slope=1 .... 値を与える→この場合は次の項目のuvp_slope
+!			?ｿｽ?ｿｽLj_upv=1?ｿｽﾌとゑｿｽ?ｿｽﾌ難ｿｽ?ｿｽ?ｿｽ?ｿｽv?ｿｽZ?ｿｽﾉ使?ｿｽp?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽz?ｿｽﾌ与?ｿｽ?ｿｽ?ｿｽ?ｿｽ
+!			j_upv_slope=0 .... ?ｿｽﾍ擾ｿｽ?ｿｽf?ｿｽ[?ｿｽ^?ｿｽ?ｿｽ?ｿｽ邇ｩ?ｿｽ?ｿｽ?ｿｽI?ｿｽﾉ計?ｿｽZ
+!			j_upv_slope=1 .... ?ｿｽl?ｿｽ?ｿｽ^?ｿｽ?ｿｽ?ｿｽ驕ｨ?ｿｽ?ｿｽ?ｿｽﾌ場合?ｿｽﾍ趣ｿｽ?ｿｽﾌ搾ｿｽ?ｿｽﾚゑｿｽuvp_slope
 !
-	upv_slope=0.001      !iはん濫モデルでは使わない。ダミーデータ
+	upv_slope=0.001      !i?ｿｽﾍん濫??ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽ?ｿｽﾈゑｿｽ?ｿｽB?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽf?ｿｽ[?ｿｽ^
 
 ! ---- Parameters for Initial Water Surface Profile-----
 !
 	CALL CG_IRIC_READ_INTEGER(fid,'i_flow', i_flow, ier)
 !
-!			i_flow=0 初期水面形は直線(一定勾配)
-!			i_flow=1 初期水面形は折線(１折点と２直線) !i　はん濫計算モデルでは使用不可
-!			i_flow=2 初期水面形は等流計算             !i　はん濫計算モデルでは使用不可
-!			i_flow=3 初期水面形は不等流計算           !i　はん濫計算モデルでは使用不可
-!			i_flow=4 初期水面形は0
+!			i_flow=0 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽﾍ抵ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽz)
+!			i_flow=1 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽﾍ折撰ｿｽ(?ｿｽP?ｿｽﾜ点?ｿｽﾆ２?ｿｽ?ｿｽ?ｿｽ?ｿｽ) !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽ?ｿｽ
+!			i_flow=2 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽﾍ難ｿｽ?ｿｽ?ｿｽ?ｿｽv?ｿｽZ             !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽ?ｿｽ
+!			i_flow=3 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽﾍ不?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽv?ｿｽZ           !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽ?ｿｽ
+!			i_flow=4 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ形?ｿｽ?ｿｽ0
 
 	CALL CG_IRIC_READ_REAL(fid,'h_slope', h_slope, ier)
 !
-!			上記i_flow=0のときの初期水面勾配
+!			?ｿｽ?ｿｽLi_flow=0?ｿｽﾌとゑｿｽ?ｿｽﾌ擾ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ鯉ｿｽ?ｿｽz
 !
 !i			CALL CG_IRIC_READ_REALSINGLE(fid,'x_bk', x_bk, ier)
 
-	x_bk = 5  !i　はん濫計算モデルでは使用不可　ダミー。
+	x_bk = 5  !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽﾂ　?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽB
 !
-!			上記i_flow=1のときの勾配変化点の下流からの距離 x_bk
+!			?ｿｽ?ｿｽLi_flow=1?ｿｽﾌとゑｿｽ?ｿｽﾌ鯉ｿｽ?ｿｽz?ｿｽﾏ会ｿｽ?ｿｽ_?ｿｽﾌ会ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾌ具ｿｽ?ｿｽ?ｿｽ x_bk
 !
 !		 CALL CG_IRIC_READ_REALSINGLE(fid,'h_slope_1', h_slope_1, ier)
 !		CALL CG_IRIC_READ_REALSINGLE(fid,'h_slope_2', h_slope_2, ier)
 
-	h_slope_1 =0.001  !i　はん濫計算モデルでは使用不可　ダミー。
-	h_slope_2 =0.001  !i　はん濫計算モデルでは使用不可　ダミー。
+	h_slope_1 =0.001  !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽﾂ　?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽB
+	h_slope_2 =0.001  !i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽﾅは使?ｿｽp?ｿｽs?ｿｽﾂ　?ｿｽ_?ｿｽ~?ｿｽ[?ｿｽB
 
 !
-!			上記i_flow=1のときの初期水面勾配(下流側)h_slope_1
-!			上記i_flow=1のときの初期水面勾配(上流側)h_slope_2
+!			?ｿｽ?ｿｽLi_flow=1?ｿｽﾌとゑｿｽ?ｿｽﾌ擾ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ鯉ｿｽ?ｿｽz(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)h_slope_1
+!			?ｿｽ?ｿｽLi_flow=1?ｿｽﾌとゑｿｽ?ｿｽﾌ擾ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ鯉ｿｽ?ｿｽz(?ｿｽ纓ｬ?ｿｽ?ｿｽ)h_slope_2
 
 !
-!	側方自由流出パラメータ
+!	?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽR?ｿｽ?ｿｽ?ｿｽo?ｿｽp?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ^
 !
 ! ----- Parameters for innundation with some inlet ----- !
 !
 
-	i_in=1      !iはん濫計算だけを行うモデル。
+	i_in=1      !i?ｿｽﾍん濫計?ｿｽZ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽs?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽf?ｿｽ?ｿｽ?ｿｽB
 
 	if(i_in == 1) then
 		j_upv = 1
@@ -1579,8 +1579,8 @@ program nays2d_flood_parallel
 !
 !			CALL CG_IRIC_READ_INTEGER(fid,'j_drg', j_drg, ier)
 !
-!			j_drg = 0 .... 粗度は河床材料(diam)から自動的に計算される
-!			j_drg = 1 .... 粗度は与えられる（以下、具体的粗度の値)
+!			j_drg = 0 .... ?ｿｽe?ｿｽx?ｿｽﾍ河擾ｿｽ?ｿｽﾞ暦ｿｽ(diam)?ｿｽ?ｿｽ?ｿｽ邇ｩ?ｿｽ?ｿｽ?ｿｽI?ｿｽﾉ計?ｿｽZ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
+!			j_drg = 1 .... ?ｿｽe?ｿｽx?ｿｽﾍ与?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽi?ｿｽﾈ会ｿｽ?ｿｽA?ｿｽ?ｿｽﾌ的?ｿｽe?ｿｽx?ｿｽﾌ値)
 
 	j_drg = 1
 
@@ -1608,7 +1608,7 @@ program nays2d_flood_parallel
      CALL CG_IRIC_READ_STRING(fid,'tmp_readfile', tmp_file_i, ier)
      CALL CG_IRIC_READ_STRING(fid,'tmp_pass', tmp_pass, ier)
      
-     !暫定処理
+     !?ｿｽb?ｿｽ闖茨ｿｽ?ｿｽ
      i_re_flag_o = 0
      i_re_flag_i = 0
      n_rest = 1
@@ -1671,7 +1671,7 @@ program nays2d_flood_parallel
 		allocate( t_qc_dis(0:nqtcell), q_cell_dis(0:nqtcell,n_q_cell)	&
 				, ni_dis_cell(0:n_q_cell) )
 		
-		q_tmp_dis = 0.d0	! 配列0は流入がないとき用
+		q_tmp_dis = 0.d0	! ?ｿｽz?ｿｽ?ｿｽ0?ｿｽﾍ暦ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ?ｿｽﾆゑｿｽ?ｿｽp
 		ni_dis_cell = 1.d0
 		
 		CALL CG_IRIC_READ_FUNCTIONALWITHNAME(fid,'t_qcells','time',xqtmp,ier)
@@ -1713,7 +1713,7 @@ program nays2d_flood_parallel
 !
 
 !i3------------------------------------------------------------
-!i3 境界条件設定機能への対応
+!i3 ?ｿｽ?ｿｽ?ｿｽE?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾝ抵ｿｽ@?ｿｽ\?ｿｽﾖの対会ｿｽ
 !i3
 !
 	j_in = 0
@@ -1856,7 +1856,7 @@ program nays2d_flood_parallel
 !				cd_veg(i,j) = veg_lamb_3 * c_tree * 0.5
 !			end if
 
-			cd_veg(i,j) = 0. 		!i　はん濫計算で樹木なし 
+			cd_veg(i,j) = 0. 		!i?ｿｽ@?ｿｽﾍん濫計?ｿｽZ?ｿｽﾅ趣ｿｽ?ｿｽﾘなゑｿｽ 
 
             
 		end do
@@ -1876,7 +1876,7 @@ program nays2d_flood_parallel
 		end do
 	end do
 	
-		! --- 流速定義点の構造物判定 ---
+		! --- ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ`?ｿｽ_?ｿｽﾌ構?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ ---
 
 	do j=1,ny
 		do i=0,nx
@@ -2071,7 +2071,7 @@ program nays2d_flood_parallel
 		DEALLOCATE(ytmp, STAT = ier)
 	end if
 
-!h160104 Xrain対応
+!h160104 Xrain?ｿｽﾎ会ｿｽ
 	if( j_rain==3 ) then
 		CALL CG_IRIC_READ_GRID_FUNCTIONALTIMESIZE(fid,'Xrain',tmpint,ier)
 		if(ier .ne. 0) then
@@ -2107,7 +2107,7 @@ program nays2d_flood_parallel
 	
 	i_bomb = 0
 
-! ---- 河床粗度に関する設定 -----
+! ---- ?ｿｽﾍ擾ｿｽ?ｿｽe?ｿｽx?ｿｽﾉ関ゑｿｽ?ｿｽ?ｿｽﾝ抵ｿｽ -----
 
 	do j=1,ny
 		do i=1,nx
@@ -2144,12 +2144,12 @@ program nays2d_flood_parallel
 		sn_vp(i,ny) = snmm(i,ny)
 	end do
 
-!inoue ----	建物阻害率 hamaki ver ----
+!inoue ----	?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽj?ｿｽQ?ｿｽ?ｿｽ hamaki ver ----
 	do j=1,ny
 		do i=1,nx
 			share(i,j) = sh4(i,j)
 			gam_v(i,j) = 1.0d0 - share(i,j)
-			if(j_cip == 2 .and. gam_v(i,j) /= 1.0d0) then	!h150113 建物阻害率ありでCIPならエラーメッセージ
+			if(j_cip == 2 .and. gam_v(i,j) /= 1.0d0) then	!h150113 ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽj?ｿｽQ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽCIP?ｿｽﾈゑｿｽG?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽb?ｿｽZ?ｿｽ[?ｿｽW
 				write(*,*) 'When considering buildings occupy, please select the upwind scheme.'
 				stop
 			end if
@@ -2172,8 +2172,8 @@ program nays2d_flood_parallel
 	
 	do j=1,ny
 		do i=1,nx-1
-			gam_e_up(i,j) = max(gam_e(i,j),gam_e(i+1,j))	!gam_eは最大値
-			gam_v_up(i,j) = (gam_v(i,j)+gam_v(i+1,j))*.5d0	!gam_vは平均値
+			gam_e_up(i,j) = max(gam_e(i,j),gam_e(i+1,j))	!gam_e?ｿｽﾍ最托ｿｽl
+			gam_v_up(i,j) = (gam_v(i,j)+gam_v(i+1,j))*.5d0	!gam_v?ｿｽﾍ包ｿｽ?ｿｽﾏ値
 		end do
 	end do
 	
@@ -2186,8 +2186,8 @@ program nays2d_flood_parallel
 
 	do j=1,ny-1
 		do i=1,nx
-			gam_e_vp(i,j) = max(gam_e(i,j),gam_e(i,j+1))	!gam_eは最大値
-			gam_v_vp(i,j) = (gam_v(i,j)+gam_v(i,j+1))*.5d0	!gam_vは平均値
+			gam_e_vp(i,j) = max(gam_e(i,j),gam_e(i,j+1))	!gam_e?ｿｽﾍ最托ｿｽl
+			gam_v_vp(i,j) = (gam_v(i,j)+gam_v(i,j+1))*.5d0	!gam_v?ｿｽﾍ包ｿｽ?ｿｽﾏ値
 		end do
 	end do
 	
@@ -2261,7 +2261,7 @@ program nays2d_flood_parallel
 	call bound_u(yun,ijobst_u)
 	call bound_v(yvn,ijobst_v)
 
-!   等流計算による境界水位時系列の計算
+!   ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽv?ｿｽZ?ｿｽﾉゑｿｽ驪ｫ?ｿｽE?ｿｽ?ｿｽ?ｿｽﾊ趣ｿｽ?ｿｽn?ｿｽ?ｿｽﾌ計?ｿｽZ
 
 	call hqtcal_inn(nq,h_down)
 
@@ -2293,7 +2293,7 @@ program nays2d_flood_parallel
 		i_tmp_count = is+1
 		!
 		
-		!Pythonからの連続計算の場合
+		!Python?ｿｽ?ｿｽ?ｿｽ?ｿｽﾌ連?ｿｽ?ｿｽ?ｿｽv?ｿｽZ?ｿｽﾌ場合
 		n_rest = 1
 		opt_tmp(0) = time + opt_tmp(0) 
 		
@@ -2441,9 +2441,9 @@ program nays2d_flood_parallel
 		end if
 
 		rain_t=rain_t*0.001/3600.
-		rain_t2=rain_t		!h160105 全領域一定の雨の場合
+		rain_t2=rain_t		!h160105 ?ｿｽS?ｿｽﾌ茨ｿｽ?ｿｽ?ｿｽﾌ雨?ｿｽﾌ場合
 
-	else if(j_rain==3) then	!h160105 Xrain対応
+	else if(j_rain==3) then	!h160105 Xrain?ｿｽﾎ会ｿｽ
 		if(time<=0.) then
 			tmpint=1
 		else if(time>t_rain(nr)) then
@@ -2458,7 +2458,7 @@ program nays2d_flood_parallel
 		
 		CALL CG_IRIC_READ_GRID_FUNCTIONAL_REAL_CELL(fid,'Xrain',tmpint,rain_t2,ier)
 		rain_t2=rain_t2*0.001/3600.
-		rain_t2=rain_t2*0.1		!hスケールファクター
+		rain_t2=rain_t2*0.1		!h?ｿｽX?ｿｽP?ｿｽ[?ｿｽ?ｿｽ?ｿｽt?ｿｽ@?ｿｽN?ｿｽ^?ｿｽ[
 
 	end if
 
@@ -2507,7 +2507,7 @@ program nays2d_flood_parallel
 		hnx=h_down
 	end if
 
-! ----- 水位・流量の境界条件 -----
+! ----- ?ｿｽ?ｿｽ?ｿｽﾊ・?ｿｽ?ｿｽ?ｿｽﾊの具ｿｽ?ｿｽE?ｿｽ?ｿｽ?ｿｽ?ｿｽ -----
 
 	call upstream_inn()
 
@@ -2518,12 +2518,12 @@ program nays2d_flood_parallel
 		call downstream(hnx)
 	end if
 
-		! ユーザがGUI上で "STOP" ボタンを押して実行をキャンセルしたか確認
+		! ?ｿｽ?ｿｽ?ｿｽ[?ｿｽU?ｿｽ?ｿｽGUI?ｿｽ?ｿｽ?ｿｽ "STOP" ?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾄ趣ｿｽ?ｿｽs?ｿｽ?ｿｽ?ｿｽL?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽm?ｿｽF
 		CALL IRIC_CHECK_CANCEL(istatus)
 		if(istatus == 1) then
 			write(*,*) "Solver is stopped because the STOP button was clicked."
 			
-			call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終了時時刻
+			call system_clock(cal_t2, t_rate, t_max)	!h160105 ?ｿｽv?ｿｽZ?ｿｽI?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 			if ( cal_t2 < cal_t1 ) then
 				t_diff = (t_max - cal_t1) + cal_t2 + 1
 			else
@@ -2538,9 +2538,9 @@ program nays2d_flood_parallel
 !$omp end single
 
 
-! ------------ 計算結果のアウトプット -------------
+! ------------ ?ｿｽv?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾊのア?ｿｽE?ｿｽg?ｿｽv?ｿｽb?ｿｽg -------------
 
-!	if ( icount == 1.or.mod(icount-1,kmod) == 0 ) then	!h time=0も出力
+!	if ( icount == 1.or.mod(icount-1,kmod) == 0 ) then	!h time=0?ｿｽ?ｿｽ?ｿｽo?ｿｽ?ｿｽ
 	if( icount==0 .or. mod(icount,kmod)==0 ) then
 !
 		if(iofrg==0) then
@@ -2566,17 +2566,17 @@ program nays2d_flood_parallel
 			if( time>=t_out_start ) then
 				qptemp = qp
 
-				! guiがcgnsファイルを読込中か否かを判定
-				do
-					call iric_check_lock(condFile, istatus)
-					if(istatus == 1) then
-						call sleep(1)
-					elseif(istatus == 0)then  !読込中でなければdoループを抜ける
-						call iric_write_sol_start(condFile, ier)   
-						exit
-					end if
-				end do
-
+				! ! gui?ｿｽ?ｿｽcgns?ｿｽt?ｿｽ@?ｿｽC?ｿｽ?ｿｽ?ｿｽ?ｿｽﾇ搾ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾛゑｿｽ?ｿｽ?ｻ抵ｿｽ
+				! do
+				! 	call iric_check_lock(condFile, istatus)
+				! 	if(istatus == 1) then
+				! 		call sleep(1)
+				! 	elseif(istatus == 0)then  !?ｿｽﾇ搾ｿｽ?ｿｽ?ｿｽ?ｿｽﾅなゑｿｽ?ｿｽ?ｿｽ?ｿｽdo?ｿｽ?ｿｽ?ｿｽ[?ｿｽv?ｿｽ?ｲゑｿｽ?ｿｽ?ｿｽ
+				! 		call iric_write_sol_start(condFile, ier)   
+				! 		exit
+				! 	end if
+				! end do
+				call cg_iric_write_sol_start(fid, ier)   
 				CALL Write_CGNS		&
 					(condFile,Index,time,q_input_in,q_in_j1,q_in_j2		&
 							 ,fname_in,fname_1,fname_2,j_in,jsin1,jsin2      &
@@ -2584,7 +2584,7 @@ program nays2d_flood_parallel
 					,iofrg,h_max,v_max,j_rain,rain_xx, ibcg)
 
 				! call cg_iric_flush(condFile, fid, ier) 
-				call iric_write_sol_end(condFile, ier)
+				call cg_iric_write_sol_end(fid, ier)
 
 				Index = Index+1
 			end if
@@ -2760,7 +2760,7 @@ program nays2d_flood_parallel
 
 	write(*,*) "Finish", ier
 
-	call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終了時時刻
+	call system_clock(cal_t2, t_rate, t_max)	!h160105 ?ｿｽv?ｿｽZ?ｿｽI?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 	if ( cal_t2 < cal_t1 ) then
 		t_diff = (t_max - cal_t1) + cal_t2 + 1
 	else
@@ -2783,37 +2783,37 @@ subroutine culvert
 
 	if(bc_num>0) then
 L1:	do i=1,bc_num
-			q_bc=0.0d0  !140602念のためゼロクリア
-			if(bc_inout(i)==1) cycle L1 !出口セルの場合
+			q_bc=0.0d0  !140602?ｿｽO?ｿｽﾌゑｿｽ?ｿｽﾟゼ?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽA
+			if(bc_inout(i)==1) cycle L1 !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
 L2:		do j=1,bc_num
 				if(i==j) cycle L2
-				if(bc_inout(j)==0) cycle L2 !入口セルの場合
-				if(bc_couple_num(i)/=bc_couple_num(j)) cycle L2 !BC番号の一致の確認
+				if(bc_inout(j)==0) cycle L2 !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
+				if(bc_couple_num(i)/=bc_couple_num(j)) cycle L2 !BC?ｿｽﾔ搾ｿｽ?ｿｽﾌ茨ｿｽv?ｿｽﾌ確?ｿｽF
 
-				!140602bc_wlin=h(bc_indx(i,1,1),bc_indx(i,2,1))        !内水位(入口側水位)
-				!140602bc_wlot=h(bc_indx(j,1,1),bc_indx(j,2,1))        !外水位(出口側水位)
-				bc_wlin=hn(bc_indx(i,1,1),bc_indx(i,2,1))        !内水位(入口側水位)
-				bc_wlot=hn(bc_indx(j,1,1),bc_indx(j,2,1))        !外水位(出口側水位)
+				!140602bc_wlin=h(bc_indx(i,1,1),bc_indx(i,2,1))        !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+				!140602bc_wlot=h(bc_indx(j,1,1),bc_indx(j,2,1))        !?ｿｽO?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽo?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+				bc_wlin=hn(bc_indx(i,1,1),bc_indx(i,2,1))        !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+				bc_wlot=hn(bc_indx(j,1,1),bc_indx(j,2,1))        !?ｿｽO?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽo?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 
 				if(bc_wlin>bc_wlot) then
-					!ボックスカルバート入口地点の水位が敷高以下の場合何もしない
+					!?ｿｽ{?ｿｽb?ｿｽN?ｿｽX?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽﾊゑｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽﾈ会ｿｽ?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(bc_wlin<=bc_base(i)) cycle L1
-					!ボックスカルバート入口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
+					!?ｿｽ{?ｿｽb?ｿｽN?ｿｽX?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽhmin?ｿｽﾈ会ｿｽ(?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?差?ｿｽl?ｿｽ?ｿｽ)?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(bc_wlin<=eta(bc_indx(i,1,1),bc_indx(i,2,1))+hmin+1.0e-6) cycle L1
 					h1=bc_wlin-bc_base(i)
 					h2=bc_wlot-bc_base(i)
-					!カルバート敷高を超えるボリューム分移動可能
+					!?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｴゑｿｽ?ｿｽ?ｿｽ{?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾚ難ｿｽ?ｿｽﾂ能
 					qlim=(dmin1(bc_wlin-eta(bc_indx(i,1,1),bc_indx(i,2,1))-hmin,bc_wlin-bc_base(i))) &
 						*area(bc_indx(i,1,1),bc_indx(i,2,1))/dt
 					muki=1
 				else
-					!ボックスカルバート出口地点の水位が敷高以下の場合何もしない
+					!?ｿｽ{?ｿｽb?ｿｽN?ｿｽX?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽo?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽﾊゑｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽﾈ会ｿｽ?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(bc_wlot<=bc_base(i)) cycle L1
-					!ボックスカルバート出口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
+					!?ｿｽ{?ｿｽb?ｿｽN?ｿｽX?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽo?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽhmin?ｿｽﾈ会ｿｽ(?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?差?ｿｽl?ｿｽ?ｿｽ)?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(bc_wlot<=eta(bc_indx(j,1,1),bc_indx(j,2,1))+hmin+1.0e-6) cycle L1
 					h1=bc_wlot-bc_base(i)
 					h2=bc_wlin-bc_base(i)
-					!カルバート敷高を超えるボリューム分移動可能
+					!?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｴゑｿｽ?ｿｽ?ｿｽ{?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾚ難ｿｽ?ｿｽﾂ能
 					qlim=(dmin1(bc_wlot-eta(bc_indx(j,1,1),bc_indx(j,2,1))-hmin,bc_wlot-bc_base(i))) &
 						*area(bc_indx(j,1,1),bc_indx(j,2,1))/dt
 					muki=-1
@@ -2824,7 +2824,7 @@ L2:		do j=1,bc_num
 				end if
 				if(h2<0.0d0) h2=0.0d0
 
-				!カルバート公式
+				!?ｿｽJ?ｿｽ?ｿｽ?ｿｽo?ｿｽ[?ｿｽg?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 				if(h2>=bc_height(i)) then
 					q_bc=bc_c1(i)*bc_width(i)*bc_height(i)*sqrt(g*2.0d0*(h1-h2))*bc_ren(i)
 				elseif(bc_c2_yesno(i)==1.and.h1>=1.5d0*bc_height(i)) then
@@ -2834,23 +2834,23 @@ L2:		do j=1,bc_num
 					q_bc=bc_c3(i)*bc_width(i)*h2*sqrt(g*2.0d0*(h1-h2))*bc_ren(i)
 				end if
 
-				!移動可能量で制御
+				!?ｿｽﾚ難ｿｽ?ｿｽﾂ能?ｿｽﾊで撰ｿｽ?ｿｽ?ｿｽ
 				if(qlim<q_bc) q_bc=qlim
 							
 				if(muki==1) then
-					!入口セル(流出)
+					!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽo)
 					q_swap(bc_indx(i,1,1),bc_indx(i,2,1))=q_swap(bc_indx(i,1,1),bc_indx(i,2,1))-q_bc
-					!出口セル(流入)
+					!?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 					q_swap(bc_indx(j,1,1),bc_indx(j,2,1))=q_swap(bc_indx(j,1,1),bc_indx(j,2,1))+q_bc
-					!出力用140602
+					!?ｿｽo?ｿｽﾍ用140602
 					bc_qswap(i)=-q_bc
 					bc_qswap(j)=q_bc
 				else
-					!出口セル(流出)
+					!?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽo)
 					q_swap(bc_indx(j,1,1),bc_indx(j,2,1))=q_swap(bc_indx(j,1,1),bc_indx(j,2,1))-q_bc
-					!入口セル(流入)
+					!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 					q_swap(bc_indx(i,1,1),bc_indx(i,2,1))=q_swap(bc_indx(i,1,1),bc_indx(i,2,1))+q_bc
-					!出力用140602
+					!?ｿｽo?ｿｽﾍ用140602
 					bc_qswap(i)=q_bc
 					bc_qswap(j)=-q_bc
 				end if
@@ -2869,12 +2869,12 @@ subroutine gate
 
 	if(gt_num>0) then
 L1:	do i=1,gt_num
-			q_gt=0.0d0  !140602念のためゼロクリア
-			if(gt_inout(i)==1) cycle L1 !出口セルの場合
+			q_gt=0.0d0  !140602?ｿｽO?ｿｽﾌゑｿｽ?ｿｽﾟゼ?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽA
+			if(gt_inout(i)==1) cycle L1 !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
 
-			gt_flg=0    !樋門が開の場合
-			if(gt_method(i)==1) then    !樋門開閉状態をデータで設定する場合
-				!gt_stateは開=0、閉=1
+			gt_flg=0    !?ｿｽ?ｿｽ蛯ｪ?ｿｽJ?ｿｽﾌ場合
+			if(gt_method(i)==1) then    !?ｿｽ?ｿｽ?ｿｽJ?ｿｽﾂ擾ｿｽﾔゑｿｽ?ｿｽf?ｿｽ[?ｿｽ^?ｿｽﾅ設定す?ｿｽ?ｿｽ鼾?
+				!gt_state?ｿｽﾍ開=0?ｿｽA?ｿｽ?ｿｽ=1
 				if(time<=0.0d0) then
 					gt_flg=gt_state(i,1)
 				else if(time>=gt_time(i,gt_size(i))) then
@@ -2886,18 +2886,18 @@ L1:	do i=1,gt_num
 				end if
 			end if
 
-			if(gt_flg==0) then  !樋門が開の場合
+			if(gt_flg==0) then  !?ｿｽ?ｿｽ蛯ｪ?ｿｽJ?ｿｽﾌ場合
 L2:			do j=1,gt_num
 					if(i==j) cycle L2
-					if(gt_inout(j)==0) cycle L2 !入口セルの場合
-					if(gt_couple_num(i)/=gt_couple_num(j)) cycle L2 !Gate番号の一致の確認
+					if(gt_inout(j)==0) cycle L2 !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
+					if(gt_couple_num(i)/=gt_couple_num(j)) cycle L2 !Gate?ｿｽﾔ搾ｿｽ?ｿｽﾌ茨ｿｽv?ｿｽﾌ確?ｿｽF
 
-					!140602gt_wlin=h(gt_indx(i,1,1),gt_indx(i,2,1))        !内水位(入口側水位)
-					gt_wlin=hn(gt_indx(i,1,1),gt_indx(i,2,1))        !内水位(入口側水位)
-					if(gt_outwl(j)==0) then                         !外水位の指定がない場合
-						!140602gt_wlot=h(gt_indx(j,1,1),gt_indx(j,2,1))    !外水位
-						gt_wlot=hn(gt_indx(j,1,1),gt_indx(j,2,1))    !外水位
-					else                                            !外水位の指定がある場合
+					!140602gt_wlin=h(gt_indx(i,1,1),gt_indx(i,2,1))        !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+					gt_wlin=hn(gt_indx(i,1,1),gt_indx(i,2,1))        !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+					if(gt_outwl(j)==0) then                         !?ｿｽO?ｿｽ?ｿｽ?ｿｽﾊの指?ｿｽ閧ｪ?ｿｽﾈゑｿｽ?ｿｽ鼾?
+						!140602gt_wlot=h(gt_indx(j,1,1),gt_indx(j,2,1))    !?ｿｽO?ｿｽ?ｿｽ?ｿｽ?ｿｽ
+						gt_wlot=hn(gt_indx(j,1,1),gt_indx(j,2,1))    !?ｿｽO?ｿｽ?ｿｽ?ｿｽ?ｿｽ
+					else                                            !?ｿｽO?ｿｽ?ｿｽ?ｿｽﾊの指?ｿｽ閧ｪ?ｿｽ?ｿｽ?ｿｽ?ｿｽ鼾?
 						if(time<=0.0d0) then
 							gt_wlot=gt_wl(j,1)
 						else if(time>=gt_time2(j,gt_size2(j))) then
@@ -2912,11 +2912,11 @@ L2:			do j=1,gt_num
 						end if
 					end if
 
-					!開閉自動で内水位≦外水位の場合何もしない
+					!?ｿｽJ?ｿｽﾂ趣ｿｽ?ｿｽ?ｿｽ?ｿｽﾅ難ｿｽ?ｿｽ?ｿｽ?ｿｽﾊ??ｿｽ?ｿｽO?ｿｽ?ｿｽ?ｿｽﾊの場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(gt_method(i)==0.and.gt_wlin<=gt_wlot) cycle L1
-					!開閉自動で水深がhmin以下(演算誤差考慮)の場合何もしない
+					!?ｿｽJ?ｿｽﾂ趣ｿｽ?ｿｽ?ｿｽ?ｿｽﾅ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽhmin?ｿｽﾈ会ｿｽ(?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?差?ｿｽl?ｿｽ?ｿｽ)?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(gt_method(i)==0.and.gt_wlin<=eta(gt_indx(i,1,1),gt_indx(i,2,1))+hmin+1.0e-6) cycle L1
-					!開閉手動で水深がhmin以下(演算誤差考慮)の場合何もしない
+					!?ｿｽJ?ｿｽﾂ手動?ｿｽﾅ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽhmin?ｿｽﾈ会ｿｽ(?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?差?ｿｽl?ｿｽ?ｿｽ)?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 					if(gt_method(i)==1) then
 						if(gt_wlin>gt_wlot) then
 							if(gt_wlin-eta(gt_indx(i,1,1),gt_indx(i,2,1))<=hmin+1.0e-6) cycle L1
@@ -2926,20 +2926,20 @@ L2:			do j=1,gt_num
 					end if
 
 					if(gt_wlin>gt_wlot) then
-						!樋門入口/出口地点の水位が敷高以下の場合何もしない
+						!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ/?ｿｽo?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽﾊゑｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽﾈ会ｿｽ?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 						if(gt_wlin<=gt_base(i)) cycle L1
 						h1=gt_wlin-gt_base(i)
 						h2=gt_wlot-gt_base(i)
-						!樋門敷高を超えるボリューム分移動可能
+						!?ｿｽ?ｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｴゑｿｽ?ｿｽ?ｿｽ{?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾚ難ｿｽ?ｿｽﾂ能
 						qlim=(dmin1(gt_wlin-eta(gt_indx(i,1,1),gt_indx(i,2,1))-hmin,gt_wlin-gt_base(i))) &
 							*area(gt_indx(i,1,1),gt_indx(i,2,1))/dt
 						muki=-1
 					else
-						!樋門入口/出口地点の水位が敷高以下の場合何もしない
+						!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ/?ｿｽo?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽﾊゑｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽﾈ会ｿｽ?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
 						if(gt_wlot<=gt_base(i)) cycle L1
 						h1=gt_wlot-gt_base(i)
 						h2=gt_wlin-gt_base(i)
-						!樋門敷高を超えるボリューム分移動可能
+						!?ｿｽ?ｿｽ?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｴゑｿｽ?ｿｽ?ｿｽ{?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾚ難ｿｽ?ｿｽﾂ能
 						qlim=(dmin1(gt_wlot-eta(gt_indx(j,1,1),gt_indx(j,2,1))-hmin,gt_wlot-gt_base(i))) &
 							*area(gt_indx(j,1,1),gt_indx(j,2,1))/dt
 						muki=1
@@ -2950,7 +2950,7 @@ L2:			do j=1,gt_num
 					end if
 					if(h2<0.0d0) h2=0.0d0
 
-					!樋門公式
+					!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 					if(h2>=gt_height(i)) then
 						q_gt=gt_c1(i)*gt_width(i)*gt_height(i)*sqrt(g*2.0d0*(h1-h2))*gt_ren(i)
 					elseif(gt_c2_yesno(i)==1.and.h1>=1.5d0*gt_height(i)) then
@@ -2960,20 +2960,20 @@ L2:			do j=1,gt_num
 						q_gt=gt_c3(i)*gt_width(i)*h2*sqrt(g*2.0d0*(h1-h2))*gt_ren(i)
 					end if
 
-					!移動可能量で制御
+					!?ｿｽﾚ難ｿｽ?ｿｽﾂ能?ｿｽﾊで撰ｿｽ?ｿｽ?ｿｽ
 					if(qlim<q_gt) q_gt=qlim
 					if(muki==1) then
-						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))+q_gt	!入口セル(流入)
+						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))+q_gt	!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 						if(gt_outwl(j)==0) q_swap(gt_indx(j,1,1),gt_indx(j,2,1))= &
-							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))-q_gt	!出口セル(流出)
-						!出力用140602
+							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))-q_gt	!?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽo)
+						!?ｿｽo?ｿｽﾍ用140602
 						gt_qswap(i)=q_gt
 						if(gt_outwl(j)==0) gt_qswap(j)=-q_gt
 					else
-						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))-q_gt	!入口セル(流出)
+						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))-q_gt	!?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽo)
 						if(gt_outwl(j)==0) q_swap(gt_indx(j,1,1),gt_indx(j,2,1))= &
-							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))+q_gt	!出口セル(流入)
-						!出力用140602
+							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))+q_gt	!?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+						!?ｿｽo?ｿｽﾍ用140602
 						gt_qswap(i)=-q_gt
 						if(gt_outwl(j)==0) gt_qswap(j)=q_gt
 					end if
@@ -2997,7 +2997,7 @@ subroutine pump
 L1:	do i=1,p_num
             q_pin(i)=0.0d0 !take160401
 
-!take160401            q_p=0.0d0  !140602念のためゼロクリア
+!take160401            q_p=0.0d0  !140602?ｿｽO?ｿｽﾌゑｿｽ?ｿｽﾟゼ?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽA
             if(p_inout(i)==1) then
               if(p_mxindx(i)>1) then
                 write(*,*) 'Pump-cell is not allowed multiple selection with pump outlet'
@@ -3005,22 +3005,22 @@ L1:	do i=1,p_num
               end if
             end if
 
-			if(p_inout(i)==1) cycle L1  !出口セルの場合
+			if(p_inout(i)==1) cycle L1  !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
 
-			!140602p_wlin=h(p_indx(i,1,1),p_indx(i,2,1))   !内水位(入口側水位)
-            !p_wlin=hn(p_indx(i,1,1),p_indx(i,2,1))   !内水位(入口側水位)
+			!140602p_wlin=h(p_indx(i,1,1),p_indx(i,2,1))   !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+            !p_wlin=hn(p_indx(i,1,1),p_indx(i,2,1))   !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 
             
 L5:         do l=1,p_mxindx(i)
-            q_p=0.0d0  !140602念のためゼロクリア	!take160401
+            q_p=0.0d0  !140602?ｿｽO?ｿｽﾌゑｿｽ?ｿｽﾟゼ?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽA	!take160401
 
-			!ポンプ入口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
-            p_wlin=hn(p_indx(i,1,l),p_indx(i,2,l))   !内水位(入口側水位)
+			!?ｿｽ|?ｿｽ?ｿｽ?ｿｽv?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽn?ｿｽ_?ｿｽﾌ撰ｿｽ?ｿｽ[?ｿｽ?ｿｽhmin?ｿｽﾈ会ｿｽ(?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?差?ｿｽl?ｿｽ?ｿｽ)?ｿｽﾌ場合?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾈゑｿｽ
+            p_wlin=hn(p_indx(i,1,l),p_indx(i,2,l))   !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
 
             !if(p_wlin<=eta(p_indx(i,1,1),p_indx(i,2,1))+hmin+1.0e-6) cycle L1
             if(p_wlin>=eta(p_indx(i,1,l),p_indx(i,2,l))+hmin+1.0e-6) then
 
-			if(p_method(i)==0) then     !ポンプ排水量が自動の場合
+			if(p_method(i)==0) then     !?ｿｽ|?ｿｽ?ｿｽ?ｿｽv?ｿｽr?ｿｽ?ｿｽ?ｿｽﾊゑｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾌ場合
 				if(p_wlin>=p_startope(i).and.p_wlin<p_stopope(i)) then
 					q_p=p_qmax(i)
                     qlim=(p_wlin-p_startope(i))*area(p_indx(i,1,l),p_indx(i,2,l))/dt
@@ -3031,7 +3031,7 @@ L5:         do l=1,p_mxindx(i)
 				else
 					q_p=0.0d0
 				end if
-			elseif(p_method(i)==1) then !ポンプ排水量が手動の場合
+			elseif(p_method(i)==1) then !?ｿｽ|?ｿｽ?ｿｽ?ｿｽv?ｿｽr?ｿｽ?ｿｽ?ｿｽﾊゑｿｽ?ｿｽ闢ｮ?ｿｽﾌ場合
 				if(time<=0.0d0) then
 					q_p=p_qout(i,1)
 				else if(time>=p_time(i,p_size(i))) then
@@ -3049,41 +3049,41 @@ L5:         do l=1,p_mxindx(i)
                             !write(*,*) p_indx(i,1,l), p_indx(i,1,l), qlim,q_p
 			end if
 
-			!移動可能量で制御
+			!?ｿｽﾚ難ｿｽ?ｿｽﾂ能?ｿｽﾊで撰ｿｽ?ｿｽ?ｿｽ
 			if(qlim<q_p) q_p=qlim
-            q_swap(p_indx(i,1,l),p_indx(i,2,l))=q_swap(p_indx(i,1,l),p_indx(i,2,l))-q_p !入口セル(流出)
+            q_swap(p_indx(i,1,l),p_indx(i,2,l))=q_swap(p_indx(i,1,l),p_indx(i,2,l))-q_p !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽo)
             q_pin(i)=q_pin(i)+q_p !take160401
-			!出力用140602
+			!?ｿｽo?ｿｽﾍ用140602
 			p_qswap(i)=-q_p
 
             end if
 
             end do L5  
 
-			!出口セルが存在する場合
+			!?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾝゑｿｽ?ｿｽ?ｿｽ鼾?
 L2:		do j=1,p_num
 				if(i==j) cycle L2
-				if(p_inout(j)==0) cycle L2  !入口セルの場合
-				if(p_couple_num(i)/=p_couple_num(j)) cycle L2   !Gate番号の一致の確認
-!take160401                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_p !出口セル(流入)
-                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_pin(i) !出口セル(流入)
-				!出力用140602
+				if(p_inout(j)==0) cycle L2  !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
+				if(p_couple_num(i)/=p_couple_num(j)) cycle L2   !Gate?ｿｽﾔ搾ｿｽ?ｿｽﾌ茨ｿｽv?ｿｽﾌ確?ｿｽF
+!take160401                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_p !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_pin(i) !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+				!?ｿｽo?ｿｽﾍ用140602
 !take160401                p_qswap(j)=q_p
                 p_qswap(j)=q_pin(i)
 			end do L2
 		end do L1
         deallocate(q_pin) !take160401
 
-		!出口側にポンプ排水量をデータで与える場合
+		!?ｿｽo?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾉポ?ｿｽ?ｿｽ?ｿｽv?ｿｽr?ｿｽ?ｿｽ?ｿｽﾊゑｿｽ?ｿｽf?ｿｽ[?ｿｽ^?ｿｽﾅ与?ｿｽ?ｿｽ?ｿｽ?ｿｽ鼾?
 L3:	do i=1,p_num
-			q_p=0.0d0  !140602念のためゼロクリア
-			if(p_inout(i)==0) cycle L3  !入口セルの場合
+			q_p=0.0d0  !140602?ｿｽO?ｿｽﾌゑｿｽ?ｿｽﾟゼ?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽA
+			if(p_inout(i)==0) cycle L3  !?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ?ｿｽﾌ場合
 L4:		do j=1,p_num
 				if(i==j) cycle L4
-				if(p_couple_num(i)==p_couple_num(j)) cycle L3 !PUMP番号の一致の確認
+				if(p_couple_num(i)==p_couple_num(j)) cycle L3 !PUMP?ｿｽﾔ搾ｿｽ?ｿｽﾌ茨ｿｽv?ｿｽﾌ確?ｿｽF
 			end do L4
 
-			!PUMPが出口のみの場合
+			!PUMP?ｿｽ?ｿｽ?ｿｽo?ｿｽ?ｿｽ?ｿｽﾌみの場合
 			if(time<=0.0d0) then
 				q_p=p_qout(i,1)
 			else if(time>=p_time(i,p_size(i))) then
@@ -3097,8 +3097,8 @@ L4:		do j=1,p_num
 				end do
 			end if
 
-			q_swap(p_indx(i,1,1),p_indx(i,2,1))=q_swap(p_indx(i,1,1),p_indx(i,2,1))+q_p !出口セル(流入)
-			!出力用140602
+			q_swap(p_indx(i,1,1),p_indx(i,2,1))=q_swap(p_indx(i,1,1),p_indx(i,2,1))+q_p !?ｿｽo?ｿｽ?ｿｽ?ｿｽZ?ｿｽ?ｿｽ(?ｿｽ?ｿｽ?ｿｽ?ｿｽ)
+			!?ｿｽo?ｿｽﾍ用140602
 			p_qswap(j)=q_p
 
 		end do L3
