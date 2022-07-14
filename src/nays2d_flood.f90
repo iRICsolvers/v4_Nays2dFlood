@@ -2578,7 +2578,7 @@ program nays2d_flood_parallel
 				! end do
 				call cg_iric_write_sol_start(fid, ier)   
 				CALL Write_CGNS		&
-					(condFile,Index,time,q_input_in,q_in_j1,q_in_j2		&
+					(fid, condFile,Index,time,q_input_in,q_in_j1,q_in_j2		&
 							 ,fname_in,fname_1,fname_2,j_in,jsin1,jsin2      &
 							 ,j_side_j1,j_side_j2,nx,ny,x,y,uxx,uyy,hsxx,z,z0	&
 					,iofrg,h_max,v_max,j_rain,rain_xx, ibcg)

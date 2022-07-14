@@ -2,7 +2,7 @@
 !=======================================================================
       contains
 
-	SUBROUTINE Write_CGNS(InputFile,Index,time,disch1,disch2,disch3,fname_in,fname_1,fname_2,j_in,jsin1,jsin2,j_side_j1,j_side_j2,im,jm	&
+	SUBROUTINE Write_CGNS(fid, InputFile,Index,time,disch1,disch2,disch3,fname_in,fname_1,fname_2,j_in,jsin1,jsin2,j_side_j1,j_side_j2,im,jm	&
 							,x,y,u,v,hs,z,z0,iofrg,h_max,v_max,j_rain,rain, ibcg0)
 !docon add start#####################################################################################
         use box_gate_pump   !140602       
