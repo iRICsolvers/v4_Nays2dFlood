@@ -29,19 +29,19 @@ MODULE GridCond
 		ALLOCATE(    sh(1:NX-1,1:NY-1), STAT=status)
    
 		CALL CG_IRIC_READ_GRID_REAL_NODE(fid,'Elevation', z1, IER);
-		CALL CG_IRIC_READ_GRID_REAL_NODE(fid,'water_depth', z2, IER);
+		!CALL CG_IRIC_READ_GRID_REAL_NODE(fid,'water_depth', z2, IER);
 		
 	!	z2 = z1
     
 		CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'Obstacle',iobst,IER)
-		CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'Fixed_movable',fm,IER)
+		!CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'Fixed_movable',fm,IER)
 		CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'Bomb',ob,IER)
 		CALL CG_IRIC_READ_GRID_REAL_CELL(fid,'channelcondition',ch,IER)
-		CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'q_cell',q_cell,IER)
+		!CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'q_cell',q_cell,IER)
 !		CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'vegetation',vege,IER)
 		CALL CG_IRIC_READ_GRID_REAL_CELL(fid,'Share',sh,IER)
         
-        CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'ibc',ibc0,IER)
+        !CALL CG_IRIC_READ_GRID_INTEGER_CELL(fid,'ibc',ibc0,IER)
 
 	END SUBROUTINE CGNS_Read_GridCondition
 
