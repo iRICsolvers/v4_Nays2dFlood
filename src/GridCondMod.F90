@@ -45,7 +45,7 @@ MODULE GridCond
 
 	END SUBROUTINE CGNS_Read_GridCondition
 
-	SUBROUTINE CGNS_Read_BoundaryCondition(j_in,j_inlen,indices, indexmax, j_size, jsizemax,f_param,f_value,slopevalue,flowname)
+	SUBROUTINE CGNS_Read_BoundaryCondition(fid, j_in,j_inlen,indices, indexmax, j_size, jsizemax,f_param,f_value,slopevalue,flowname)
 		use iric
 !docon add start#####################################################################################
         use box_gate_pump

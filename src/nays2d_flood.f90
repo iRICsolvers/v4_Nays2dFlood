@@ -1721,7 +1721,7 @@ program nays2d_flood_parallel
 	jsin2 = 0
 
 	call CGNS_Read_BoundaryCondition		&
-			( j_inn,j_inlen,indices, indexmax, j_size, jsizemax, f_param, f_value, slopevalue,flowname )
+			( fid, j_inn,j_inlen,indices, indexmax, j_size, jsizemax, f_param, f_value, slopevalue,flowname )
 
 	do i = 1, j_inn
 		do j = 1, j_inlen(i)-1
