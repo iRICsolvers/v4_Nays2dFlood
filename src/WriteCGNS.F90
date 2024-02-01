@@ -27,7 +27,7 @@
 		double precision,dimension(0:im,0:jm),intent(in) :: u,v,hs,z,z0
 		double precision,dimension(0:im,0:jm),intent(in) :: h_max,v_max
 		double precision,dimension(0:im,0:jm),intent(in) :: x, y
-!h160123 Xrain?¿½Î‰ï¿½
+!h160123 Xrain‘Î‰ž
 		INTEGER, INTENT(IN) :: j_rain
 		double precision,dimension(0:im,0:jm),intent(in) :: rain
 
@@ -37,8 +37,8 @@
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: Vdata1, Udata1, Hdata1, Zbdata1, WSE
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: Vdata2, Hdata2
 		double precision, ALLOCATABLE, DIMENSION(:,:) :: xx, yy
-		double precision, ALLOCATABLE, DIMENSION(:,:) :: Rdata	!h160123 Xrain?¿½Î‰ï¿½
-        integer, ALLOCATABLE, DIMENSION(:,:) :: ibc0	!h160123 Xrain?¿½Î‰ï¿½
+		double precision, ALLOCATABLE, DIMENSION(:,:) :: Rdata	!h160123 Xrain‘Î‰ž
+        integer, ALLOCATABLE, DIMENSION(:,:) :: ibc0	!h160123 Xrain‘Î‰ž
 
 		nx = im+1
 		ny = jm+1
@@ -93,7 +93,7 @@
 		ALLOCATE(Hdata2(nx, ny), STAT=ier)
 		ALLOCATE(Zbdata1(nx, ny), STAT=ier)
 		ALLOCATE(WSE(nx, ny), STAT=ier)
-		ALLOCATE(Rdata(nx, ny), STAT=ier)	!h160123 Xrain?¿½Î‰ï¿½
+		ALLOCATE(Rdata(nx, ny), STAT=ier)	!h160123 Xrain‘Î‰ž
         ALLOCATE(ibc0(nx, ny), STAT=ier)
 
 		DO j=1,NY
