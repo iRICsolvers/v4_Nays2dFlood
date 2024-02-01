@@ -1,4 +1,4 @@
-module common_hh		! ---------------------------------------------------------------
+module common_hh		!  ---------------------------------------------------------------
 !
 	double precision :: time
 	integer :: nx,ny,nym,nobst,lmax							&
