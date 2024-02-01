@@ -603,7 +603,7 @@ module initl_m		! --------------------------------------------------------------
 				end do
 			end do
 !i
-!i 初期水面形が一定勾配も利用できるように。
+!i 初期水面形が一定勾配も利用できるように�?
 !i
 			if( j_side1==1 ) then
 				do i=1,nx
@@ -627,7 +627,7 @@ module initl_m		! --------------------------------------------------------------
 !i
 		end if
 !
-			! ---- 氾濫計算ではslopeが求められないので無効にする ----
+			! ---- 氾濫計算ではslopeが求められな�?ので無効にする ----
 
 !		do i=1,nx-1
 !			qc(i)=0.d0
@@ -653,7 +653,7 @@ module initl_m		! --------------------------------------------------------------
 !			end do
 !		end do
 !
-			! ---- 氾濫計算では初期流速は0 ----
+			! ---- 氾濫計算では初期�?速�?�0 ----
 
 		do j=1-j_side1,ny+j_side2
 			do i=1,nx-1
@@ -845,7 +845,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(upv_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! 上流端水位�?�計�?
 !
 		do ii=1,j_in
 			do n=0,nq
@@ -943,7 +943,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(vpv1_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! 上流端水位�?�計�?
 !
 		do ii=1,jsin1
 			do n=0,nq
@@ -1036,7 +1036,7 @@ end module initl_m		! ----------------------------------------------------------
 					/(b_ups(i)*sqrt(vpv2_slope_in(i))))**(3./5.)*100.
 		end do
 !
-! 上流端水位の計算
+! 上流端水位�?�計�?
 !
 		do ii=1,jsin2
 			do n=0,nq
@@ -1392,7 +1392,7 @@ program nays2d_flood_parallel
 	double precision,dimension(:),allocatable :: q_tmp_dis, ni_dis_cell
 	double precision,dimension(:,:),allocatable :: q_cell_dis
 
-!inoue 建物阻害率 hamaki ver
+!inoue 建物阻害�? hamaki ver
 	double precision,dimension(:,:),allocatable :: sh4
 	integer :: j_gam
 !inoue
@@ -1453,7 +1453,7 @@ program nays2d_flood_parallel
 	! 	call cg_error_print()
 	! ENDIF
 
-   !guiにcgnsファイルを読込みであることを知らせるファイルを生成
+   !guiにcgnsファイルを読込みであることを知らせるファイルを生�?
    call iric_initoption(IRIC_OPTION_CANCEL, ier)
 
 ! ---- Read computational condition ----
@@ -1463,80 +1463,80 @@ program nays2d_flood_parallel
 
 	CALL CG_IRIC_READ_INTEGER(fid,'j_wl', j_wl, ier) !i
 !
-!			j_wl = 0 ...下流端水位一定値を与える(h_down)
-!			j_wl = 1 ...下流端水位は等流計算で求める⇒!iはん濫モデルでは等流起算なし
-!			j_wl = 2 ...下流端水位はファイルから読み込む
-!			j_wl = 3 ...下流端の水深は，前のグリットのコピーにする
+!			j_wl = 0 ...下流端水位一定値を与え�?(h_down)
+!			j_wl = 1 ...下流端水位�?�等流計算で求める��!iはん濫モ�?ルでは等流起算な�?
+!			j_wl = 2 ...下流端水位�?�ファイルから読み込む
+!			j_wl = 3 ...下流端の水深は?��前のグリ�?ト�?�コピ�?�にする
 
 
 	CALL CG_IRIC_READ_REAL(fid,'h_down', h_down, ier)
 !
-!			h_dwown = 下流端水位の値(上記j_wl=0の時のみ有効)
+!			h_dwown = 下流端水位�?�値(上記j_wl=0の時�?�み有効)
 !
 
 	CALL CG_IRIC_READ_INTEGER(fid,'j_rain', j_rain, ier) !i
 !
-!			j_rain =1	降雨なし
+!			j_rain =1	降雨な�?
 !			j_rain =2	降雨あり(全領域同じ時系列データ)
-!			j_rain =3	降雨あり(Xrain対応)
+!			j_rain =3	降雨あり(Xrain対�?)
 !
 
-	j_slope=0  		!iはん濫モデルでは等流起算なし
+	j_slope=0  		!iはん濫モ�?ルでは等流起算な�?
 
-	bh_slope=0.  	!iはん濫モデルでは等流起算なし
+	bh_slope=0.  	!iはん濫モ�?ルでは等流起算な�?
 !
 ! ------ Parameters for Upstream Boundary ------
 
-	j_upv = 1   	 !iはん濫モデルでは使わない。ダミーデータ
+	j_upv = 1   	 !iはん濫モ�?ルでは使わな�?。ダミ�?��?ータ
 !
-!			j_upv =1 上流端の流速を等流計算で与える
-!			j_upv =2 上流端の流速を、上流端の水深を使って流量から逆算する
+!			j_upv =1 上流端の�?速を等流計算で与え�?
+!			j_upv =2 上流端の�?速を、上流端の水深を使って�?量から�?算す�?
 !
-	j_upv_slope=1      !iはん濫モデルでは使わない。ダミーデータ
+	j_upv_slope=1      !iはん濫モ�?ルでは使わな�?。ダミ�?��?ータ
 !
-!			上記j_upv=1のときの等流計算に使用する勾配の与え方
-!			j_upv_slope=0 .... 河床データから自動的に計算
-!			j_upv_slope=1 .... 値を与える→この場合は次の項目のuvp_slope
+!			上記j_upv=1のとき�?�等流計算に使用する勾配�?�与え方
+!			j_upv_slope=0 .... 河床データから自動的に計�?
+!			j_upv_slope=1 .... 値を与える�?�この場合�?�次の�?目のuvp_slope
 !
-	upv_slope=0.001      !iはん濫モデルでは使わない。ダミーデータ
+	upv_slope=0.001      !iはん濫モ�?ルでは使わな�?。ダミ�?��?ータ
 
 ! ---- Parameters for Initial Water Surface Profile-----
 !
 	CALL CG_IRIC_READ_INTEGER(fid,'i_flow', i_flow, ier)
 !
-!			i_flow=0 初期水面形は直線(一定勾配)
-!			i_flow=1 初期水面形は折線(１折点と２直線) !i　はん濫計算モデルでは使用不可
-!			i_flow=2 初期水面形は等流計算             !i　はん濫計算モデルでは使用不可
-!			i_flow=3 初期水面形は不等流計算           !i　はん濫計算モデルでは使用不可
+!			i_flow=0 初期水面形は直�?(一定勾�?)
+!			i_flow=1 初期水面形は折�?(?��折点と?��直�?) !i　はん濫計算モ�?ルでは使用不可
+!			i_flow=2 初期水面形は等流計�?             !i　はん濫計算モ�?ルでは使用不可
+!			i_flow=3 初期水面形は不等流計�?           !i　はん濫計算モ�?ルでは使用不可
 !			i_flow=4 初期水面形は0
 
 	CALL CG_IRIC_READ_REAL(fid,'h_slope', h_slope, ier)
 !
-!			上記i_flow=0のときの初期水面勾配
+!			上記i_flow=0のとき�?�初期水面勾�?
 !
 !i			CALL CG_IRIC_READ_REALSINGLE_F('x_bk', x_bk, ier)
 
-	x_bk = 5  !i　はん濫計算モデルでは使用不可　ダミー。
+	x_bk = 5  !i　はん濫計算モ�?ルでは使用不可　ダミ�?��?
 !
-!			上記i_flow=1のときの勾配変化点の下流からの距離 x_bk
+!			上記i_flow=1のとき�?�勾配変化点の下流から�?�距離 x_bk
 !
 !		 CALL CG_IRIC_READ_REALSINGLE_F('h_slope_1', h_slope_1, ier)
 !		CALL CG_IRIC_READ_REALSINGLE_F('h_slope_2', h_slope_2, ier)
 
-	h_slope_1 =0.001  !i　はん濫計算モデルでは使用不可　ダミー。
-	h_slope_2 =0.001  !i　はん濫計算モデルでは使用不可　ダミー。
+	h_slope_1 =0.001  !i　はん濫計算モ�?ルでは使用不可　ダミ�?��?
+	h_slope_2 =0.001  !i　はん濫計算モ�?ルでは使用不可　ダミ�?��?
 
 !
-!			上記i_flow=1のときの初期水面勾配(下流側)h_slope_1
-!			上記i_flow=1のときの初期水面勾配(上流側)h_slope_2
+!			上記i_flow=1のとき�?�初期水面勾�?(下流�?�)h_slope_1
+!			上記i_flow=1のとき�?�初期水面勾�?(上流�?�)h_slope_2
 
 !
-!	側方自由流出パラメータ
+!	側方自由流�?�パラメータ
 !
 ! ----- Parameters for innundation with some inlet ----- !
 !
 
-	i_in=1      !iはん濫計算だけを行うモデル。
+	i_in=1      !iはん濫計算だけを行うモ�?ル�?
 
 	if(i_in == 1) then
 		j_upv = 1
@@ -1579,8 +1579,8 @@ program nays2d_flood_parallel
 !
 !			CALL CG_IRIC_READ_INTEGER(fid,'j_drg', j_drg, ier)
 !
-!			j_drg = 0 .... 粗度は河床材料(diam)から自動的に計算される
-!			j_drg = 1 .... 粗度は与えられる（以下、具体的粗度の値)
+!			j_drg = 0 .... 粗度は河床材�?(diam)から自動的に計算される
+!			j_drg = 1 .... 粗度は与えられる（以下、�?�体的粗度の値)
 
 	j_drg = 1
 
@@ -1608,7 +1608,7 @@ program nays2d_flood_parallel
      CALL CG_IRIC_READ_STRING(fid,'tmp_readfile', tmp_file_i, ier)
      CALL CG_IRIC_READ_STRING(fid,'tmp_pass', tmp_pass, ier)
      
-     !暫定処理
+     !暫定�?��?
      i_re_flag_o = 0
      i_re_flag_i = 0
      n_rest = 1
@@ -1671,7 +1671,7 @@ program nays2d_flood_parallel
 		allocate( t_qc_dis(0:nqtcell), q_cell_dis(0:nqtcell,n_q_cell)	&
 				, ni_dis_cell(0:n_q_cell) )
 		
-		q_tmp_dis = 0.d0	! 配列0は流入がないとき用
+		q_tmp_dis = 0.d0	! 配�??0は流�?�がな�?とき用
 		ni_dis_cell = 1.d0
 		
 		CALL CG_IRIC_READ_FUNCTIONALWITHNAME(fid,'t_qcells','time',xqtmp,ier)
@@ -1713,7 +1713,7 @@ program nays2d_flood_parallel
 !
 
 !i3------------------------------------------------------------
-!i3 境界条件設定機能への対応
+!i3 �?界条件設定機�?�への対�?
 !i3
 !
 	j_in = 0
@@ -1856,7 +1856,7 @@ program nays2d_flood_parallel
 !				cd_veg(i,j) = veg_lamb_3 * c_tree * 0.5
 !			end if
 
-			cd_veg(i,j) = 0. 		!i　はん濫計算で樹木なし 
+			cd_veg(i,j) = 0. 		!i　はん濫計算で樹木な�? 
 
             
 		end do
@@ -1876,7 +1876,7 @@ program nays2d_flood_parallel
 		end do
 	end do
 	
-		! --- 流速定義点の構造物判定 ---
+		! --- �?速定義点の構�?物判�? ---
 
 	do j=1,ny
 		do i=0,nx
@@ -2071,7 +2071,7 @@ program nays2d_flood_parallel
 		DEALLOCATE(ytmp, STAT = ier)
 	end if
 
-!h160104 Xrain対応
+!h160104 Xrain対�?
 	if( j_rain==3 ) then
 		CALL CG_IRIC_READ_GRID_FUNCTIONALTIMESIZE(fid,'Xrain',tmpint,ier)
 		if(ier .ne. 0) then
@@ -2107,7 +2107,7 @@ program nays2d_flood_parallel
 	
 	i_bomb = 0
 
-! ---- 河床粗度に関する設定 -----
+! ---- 河床粗度に関する設�? -----
 
 	do j=1,ny
 		do i=1,nx
@@ -2144,12 +2144,12 @@ program nays2d_flood_parallel
 		sn_vp(i,ny) = snmm(i,ny)
 	end do
 
-!inoue ----	建物阻害率 hamaki ver ----
+!inoue ----	建物阻害�? hamaki ver ----
 	do j=1,ny
 		do i=1,nx
 			share(i,j) = sh4(i,j)
 			gam_v(i,j) = 1.0d0 - share(i,j)
-			if(j_cip == 2 .and. gam_v(i,j) /= 1.0d0) then	!h150113 建物阻害率ありでCIPならエラーメッセージ
+			if(j_cip == 2 .and. gam_v(i,j) /= 1.0d0) then	!h150113 建物阻害�?ありでCIPならエラーメ�?セージ
 				write(*,*) 'When considering buildings occupy, please select the upwind scheme.'
 				stop
 			end if
@@ -2173,7 +2173,7 @@ program nays2d_flood_parallel
 	do j=1,ny
 		do i=1,nx-1
 			gam_e_up(i,j) = max(gam_e(i,j),gam_e(i+1,j))	!gam_eは最大値
-			gam_v_up(i,j) = (gam_v(i,j)+gam_v(i+1,j))*.5d0	!gam_vは平均値
+			gam_v_up(i,j) = (gam_v(i,j)+gam_v(i+1,j))*.5d0	!gam_vは平�?値
 		end do
 	end do
 	
@@ -2187,7 +2187,7 @@ program nays2d_flood_parallel
 	do j=1,ny-1
 		do i=1,nx
 			gam_e_vp(i,j) = max(gam_e(i,j),gam_e(i,j+1))	!gam_eは最大値
-			gam_v_vp(i,j) = (gam_v(i,j)+gam_v(i,j+1))*.5d0	!gam_vは平均値
+			gam_v_vp(i,j) = (gam_v(i,j)+gam_v(i,j+1))*.5d0	!gam_vは平�?値
 		end do
 	end do
 	
@@ -2261,7 +2261,7 @@ program nays2d_flood_parallel
 	call bound_u(yun,ijobst_u)
 	call bound_v(yvn,ijobst_v)
 
-!   等流計算による境界水位時系列の計算
+!   等流計算による�?界水位時系列�?�計�?
 
 	call hqtcal_inn(nq,h_down)
 
@@ -2293,7 +2293,7 @@ program nays2d_flood_parallel
 		i_tmp_count = is+1
 		!
 		
-		!Pythonからの連続計算の場合
+		!Pythonからの連続計算�?�場�?
 		n_rest = 1
 		opt_tmp(0) = time + opt_tmp(0) 
 		
@@ -2441,9 +2441,9 @@ program nays2d_flood_parallel
 		end if
 
 		rain_t=rain_t*0.001/3600.
-		rain_t2=rain_t		!h160105 全領域一定の雨の場合
+		rain_t2=rain_t		!h160105 全領域一定�?�雨の場�?
 
-	else if(j_rain==3) then	!h160105 Xrain対応
+	else if(j_rain==3) then	!h160105 Xrain対�?
 		if(time<=0.) then
 			tmpint=1
 		else if(time>t_rain(nr)) then
@@ -2507,7 +2507,7 @@ program nays2d_flood_parallel
 		hnx=h_down
 	end if
 
-! ----- 水位・流量の境界条件 -----
+! ----- 水位�?��?量�?��?界条件 -----
 
 	call upstream_inn()
 
@@ -2518,12 +2518,12 @@ program nays2d_flood_parallel
 		call downstream(hnx)
 	end if
 
-		! ユーザがGUI上で "STOP" ボタンを押して実行をキャンセルしたか確認
+		! ユーザがGUI上で "STOP" ボタンを押して実行をキャンセルしたか確�?
 		CALL IRIC_CHECK_CANCEL(istatus)
 		if(istatus == 1) then
 			write(*,*) "Solver is stopped because the STOP button was clicked."
 			
-			call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終了時時刻
+			call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終�?時時刻
 			if ( cal_t2 < cal_t1 ) then
 				t_diff = (t_max - cal_t1) + cal_t2 + 1
 			else
@@ -2538,9 +2538,9 @@ program nays2d_flood_parallel
 !$omp end single
 
 
-! ------------ 計算結果のアウトプット -------------
+! ------------ 計算結果のアウト�?�ッ�? -------------
 
-!	if ( icount == 1.or.mod(icount-1,kmod) == 0 ) then	!h time=0も出力
+!	if ( icount == 1.or.mod(icount-1,kmod) == 0 ) then	!h time=0も�?��?
 	if( icount==0 .or. mod(icount,kmod)==0 ) then
 !
 		if(iofrg==0) then
@@ -2566,12 +2566,12 @@ program nays2d_flood_parallel
 			if( time>=t_out_start ) then
 				qptemp = qp
 
-				! ! guiがcgnsファイルを読込中か否かを判定
+				! ! guiがcgnsファイルを読込中か否かを判�?
 				! do
 				! 	call iric_check_lock(condFile, istatus)
 				! 	if(istatus == 1) then
 				! 		call sleep(1)
-				! 	elseif(istatus == 0)then  !読込中でなければdoループを抜ける
+				! 	elseif(istatus == 0)then  !読込中でなければdoループを抜け�?
 				! 		call iric_write_sol_start(condFile, ier)   
 				! 		exit
 				! 	end if
@@ -2760,7 +2760,7 @@ program nays2d_flood_parallel
 
 	write(*,*) "Finish", ier
 
-	call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終了時時刻
+	call system_clock(cal_t2, t_rate, t_max)	!h160105 計算終�?時時刻
 	if ( cal_t2 < cal_t1 ) then
 		t_diff = (t_max - cal_t1) + cal_t2 + 1
 	else
@@ -2784,36 +2784,36 @@ subroutine culvert
 	if(bc_num>0) then
 L1:	do i=1,bc_num
 			q_bc=0.0d0  !140602念のためゼロクリア
-			if(bc_inout(i)==1) cycle L1 !出口セルの場合
+			if(bc_inout(i)==1) cycle L1 !出口セルの場�?
 L2:		do j=1,bc_num
 				if(i==j) cycle L2
-				if(bc_inout(j)==0) cycle L2 !入口セルの場合
-				if(bc_couple_num(i)/=bc_couple_num(j)) cycle L2 !BC番号の一致の確認
+				if(bc_inout(j)==0) cycle L2 !入口セルの場�?
+				if(bc_couple_num(i)/=bc_couple_num(j)) cycle L2 !BC番号の一致の確�?
 
-				!140602bc_wlin=h(bc_indx(i,1,1),bc_indx(i,2,1))        !内水位(入口側水位)
-				!140602bc_wlot=h(bc_indx(j,1,1),bc_indx(j,2,1))        !外水位(出口側水位)
-				bc_wlin=hn(bc_indx(i,1,1),bc_indx(i,2,1))        !内水位(入口側水位)
-				bc_wlot=hn(bc_indx(j,1,1),bc_indx(j,2,1))        !外水位(出口側水位)
+				!140602bc_wlin=h(bc_indx(i,1,1),bc_indx(i,2,1))        !�?水�?(入口側水�?)
+				!140602bc_wlot=h(bc_indx(j,1,1),bc_indx(j,2,1))        !外水�?(出口側水�?)
+				bc_wlin=hn(bc_indx(i,1,1),bc_indx(i,2,1))        !�?水�?(入口側水�?)
+				bc_wlot=hn(bc_indx(j,1,1),bc_indx(j,2,1))        !外水�?(出口側水�?)
 
 				if(bc_wlin>bc_wlot) then
-					!ボックスカルバート入口地点の水位が敷高以下の場合何もしない
+					!ボックスカルバ�?�ト�?�口地点の水位が敷高以下�?�場合何もしな�?
 					if(bc_wlin<=bc_base(i)) cycle L1
-					!ボックスカルバート入口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
+					!ボックスカルバ�?�ト�?�口地点の水深がhmin以�?(演算誤差�?慮)の場合何もしな�?
 					if(bc_wlin<=eta(bc_indx(i,1,1),bc_indx(i,2,1))+hmin+1.0e-6) cycle L1
 					h1=bc_wlin-bc_base(i)
 					h2=bc_wlot-bc_base(i)
-					!カルバート敷高を超えるボリューム分移動可能
+					!カルバ�?�ト敷高を�?えるボリュー�?�?移動可能
 					qlim=(dmin1(bc_wlin-eta(bc_indx(i,1,1),bc_indx(i,2,1))-hmin,bc_wlin-bc_base(i))) &
 						*area(bc_indx(i,1,1),bc_indx(i,2,1))/dt
 					muki=1
 				else
-					!ボックスカルバート出口地点の水位が敷高以下の場合何もしない
+					!ボックスカルバ�?�ト�?�口地点の水位が敷高以下�?�場合何もしな�?
 					if(bc_wlot<=bc_base(i)) cycle L1
-					!ボックスカルバート出口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
+					!ボックスカルバ�?�ト�?�口地点の水深がhmin以�?(演算誤差�?慮)の場合何もしな�?
 					if(bc_wlot<=eta(bc_indx(j,1,1),bc_indx(j,2,1))+hmin+1.0e-6) cycle L1
 					h1=bc_wlot-bc_base(i)
 					h2=bc_wlin-bc_base(i)
-					!カルバート敷高を超えるボリューム分移動可能
+					!カルバ�?�ト敷高を�?えるボリュー�?�?移動可能
 					qlim=(dmin1(bc_wlot-eta(bc_indx(j,1,1),bc_indx(j,2,1))-hmin,bc_wlot-bc_base(i))) &
 						*area(bc_indx(j,1,1),bc_indx(j,2,1))/dt
 					muki=-1
@@ -2824,7 +2824,7 @@ L2:		do j=1,bc_num
 				end if
 				if(h2<0.0d0) h2=0.0d0
 
-				!カルバート公式
+				!カルバ�?�ト�?��?
 				if(h2>=bc_height(i)) then
 					q_bc=bc_c1(i)*bc_width(i)*bc_height(i)*sqrt(g*2.0d0*(h1-h2))*bc_ren(i)
 				elseif(bc_c2_yesno(i)==1.and.h1>=1.5d0*bc_height(i)) then
@@ -2838,17 +2838,17 @@ L2:		do j=1,bc_num
 				if(qlim<q_bc) q_bc=qlim
 							
 				if(muki==1) then
-					!入口セル(流出)
+					!入口セル(流�?�)
 					q_swap(bc_indx(i,1,1),bc_indx(i,2,1))=q_swap(bc_indx(i,1,1),bc_indx(i,2,1))-q_bc
-					!出口セル(流入)
+					!出口セル(流�?�)
 					q_swap(bc_indx(j,1,1),bc_indx(j,2,1))=q_swap(bc_indx(j,1,1),bc_indx(j,2,1))+q_bc
 					!出力用140602
 					bc_qswap(i)=-q_bc
 					bc_qswap(j)=q_bc
 				else
-					!出口セル(流出)
+					!出口セル(流�?�)
 					q_swap(bc_indx(j,1,1),bc_indx(j,2,1))=q_swap(bc_indx(j,1,1),bc_indx(j,2,1))-q_bc
-					!入口セル(流入)
+					!入口セル(流�?�)
 					q_swap(bc_indx(i,1,1),bc_indx(i,2,1))=q_swap(bc_indx(i,1,1),bc_indx(i,2,1))+q_bc
 					!出力用140602
 					bc_qswap(i)=q_bc
@@ -2870,11 +2870,11 @@ subroutine gate
 	if(gt_num>0) then
 L1:	do i=1,gt_num
 			q_gt=0.0d0  !140602念のためゼロクリア
-			if(gt_inout(i)==1) cycle L1 !出口セルの場合
+			if(gt_inout(i)==1) cycle L1 !出口セルの場�?
 
-			gt_flg=0    !樋門が開の場合
-			if(gt_method(i)==1) then    !樋門開閉状態をデータで設定する場合
-				!gt_stateは開=0、閉=1
+			gt_flg=0    !樋門が開の場�?
+			if(gt_method(i)==1) then    !樋門開閉状態を�?ータで設定する�?��?
+				!gt_stateは�?=0�?�?=1
 				if(time<=0.0d0) then
 					gt_flg=gt_state(i,1)
 				else if(time>=gt_time(i,gt_size(i))) then
@@ -2886,18 +2886,18 @@ L1:	do i=1,gt_num
 				end if
 			end if
 
-			if(gt_flg==0) then  !樋門が開の場合
+			if(gt_flg==0) then  !樋門が開の場�?
 L2:			do j=1,gt_num
 					if(i==j) cycle L2
-					if(gt_inout(j)==0) cycle L2 !入口セルの場合
-					if(gt_couple_num(i)/=gt_couple_num(j)) cycle L2 !Gate番号の一致の確認
+					if(gt_inout(j)==0) cycle L2 !入口セルの場�?
+					if(gt_couple_num(i)/=gt_couple_num(j)) cycle L2 !Gate番号の一致の確�?
 
-					!140602gt_wlin=h(gt_indx(i,1,1),gt_indx(i,2,1))        !内水位(入口側水位)
-					gt_wlin=hn(gt_indx(i,1,1),gt_indx(i,2,1))        !内水位(入口側水位)
-					if(gt_outwl(j)==0) then                         !外水位の指定がない場合
-						!140602gt_wlot=h(gt_indx(j,1,1),gt_indx(j,2,1))    !外水位
-						gt_wlot=hn(gt_indx(j,1,1),gt_indx(j,2,1))    !外水位
-					else                                            !外水位の指定がある場合
+					!140602gt_wlin=h(gt_indx(i,1,1),gt_indx(i,2,1))        !�?水�?(入口側水�?)
+					gt_wlin=hn(gt_indx(i,1,1),gt_indx(i,2,1))        !�?水�?(入口側水�?)
+					if(gt_outwl(j)==0) then                         !外水位�?��?定がな�?場�?
+						!140602gt_wlot=h(gt_indx(j,1,1),gt_indx(j,2,1))    !外水�?
+						gt_wlot=hn(gt_indx(j,1,1),gt_indx(j,2,1))    !外水�?
+					else                                            !外水位�?��?定がある場�?
 						if(time<=0.0d0) then
 							gt_wlot=gt_wl(j,1)
 						else if(time>=gt_time2(j,gt_size2(j))) then
@@ -2912,11 +2912,11 @@ L2:			do j=1,gt_num
 						end if
 					end if
 
-					!開閉自動で内水位≦外水位の場合何もしない
+					!開閉自動で�?水位≦外水位�?�場合何もしな�?
 					if(gt_method(i)==0.and.gt_wlin<=gt_wlot) cycle L1
-					!開閉自動で水深がhmin以下(演算誤差考慮)の場合何もしない
+					!開閉自動で水深がhmin以�?(演算誤差�?慮)の場合何もしな�?
 					if(gt_method(i)==0.and.gt_wlin<=eta(gt_indx(i,1,1),gt_indx(i,2,1))+hmin+1.0e-6) cycle L1
-					!開閉手動で水深がhmin以下(演算誤差考慮)の場合何もしない
+					!開閉手動で水深がhmin以�?(演算誤差�?慮)の場合何もしな�?
 					if(gt_method(i)==1) then
 						if(gt_wlin>gt_wlot) then
 							if(gt_wlin-eta(gt_indx(i,1,1),gt_indx(i,2,1))<=hmin+1.0e-6) cycle L1
@@ -2926,20 +2926,20 @@ L2:			do j=1,gt_num
 					end if
 
 					if(gt_wlin>gt_wlot) then
-						!樋門入口/出口地点の水位が敷高以下の場合何もしない
+						!樋門入口/出口地点の水位が敷高以下�?�場合何もしな�?
 						if(gt_wlin<=gt_base(i)) cycle L1
 						h1=gt_wlin-gt_base(i)
 						h2=gt_wlot-gt_base(i)
-						!樋門敷高を超えるボリューム分移動可能
+						!樋門敷高を�?えるボリュー�?�?移動可能
 						qlim=(dmin1(gt_wlin-eta(gt_indx(i,1,1),gt_indx(i,2,1))-hmin,gt_wlin-gt_base(i))) &
 							*area(gt_indx(i,1,1),gt_indx(i,2,1))/dt
 						muki=-1
 					else
-						!樋門入口/出口地点の水位が敷高以下の場合何もしない
+						!樋門入口/出口地点の水位が敷高以下�?�場合何もしな�?
 						if(gt_wlot<=gt_base(i)) cycle L1
 						h1=gt_wlot-gt_base(i)
 						h2=gt_wlin-gt_base(i)
-						!樋門敷高を超えるボリューム分移動可能
+						!樋門敷高を�?えるボリュー�?�?移動可能
 						qlim=(dmin1(gt_wlot-eta(gt_indx(j,1,1),gt_indx(j,2,1))-hmin,gt_wlot-gt_base(i))) &
 							*area(gt_indx(j,1,1),gt_indx(j,2,1))/dt
 						muki=1
@@ -2950,7 +2950,7 @@ L2:			do j=1,gt_num
 					end if
 					if(h2<0.0d0) h2=0.0d0
 
-					!樋門公式
+					!樋門公�?
 					if(h2>=gt_height(i)) then
 						q_gt=gt_c1(i)*gt_width(i)*gt_height(i)*sqrt(g*2.0d0*(h1-h2))*gt_ren(i)
 					elseif(gt_c2_yesno(i)==1.and.h1>=1.5d0*gt_height(i)) then
@@ -2963,16 +2963,16 @@ L2:			do j=1,gt_num
 					!移動可能量で制御
 					if(qlim<q_gt) q_gt=qlim
 					if(muki==1) then
-						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))+q_gt	!入口セル(流入)
+						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))+q_gt	!入口セル(流�?�)
 						if(gt_outwl(j)==0) q_swap(gt_indx(j,1,1),gt_indx(j,2,1))= &
-							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))-q_gt	!出口セル(流出)
+							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))-q_gt	!出口セル(流�?�)
 						!出力用140602
 						gt_qswap(i)=q_gt
 						if(gt_outwl(j)==0) gt_qswap(j)=-q_gt
 					else
-						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))-q_gt	!入口セル(流出)
+						q_swap(gt_indx(i,1,1),gt_indx(i,2,1))=q_swap(gt_indx(i,1,1),gt_indx(i,2,1))-q_gt	!入口セル(流�?�)
 						if(gt_outwl(j)==0) q_swap(gt_indx(j,1,1),gt_indx(j,2,1))= &
-							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))+q_gt	!出口セル(流入)
+							q_swap(gt_indx(j,1,1),gt_indx(j,2,1))+q_gt	!出口セル(流�?�)
 						!出力用140602
 						gt_qswap(i)=-q_gt
 						if(gt_outwl(j)==0) gt_qswap(j)=q_gt
@@ -3005,22 +3005,22 @@ L1:	do i=1,p_num
               end if
             end if
 
-			if(p_inout(i)==1) cycle L1  !出口セルの場合
+			if(p_inout(i)==1) cycle L1  !出口セルの場�?
 
-			!140602p_wlin=h(p_indx(i,1,1),p_indx(i,2,1))   !内水位(入口側水位)
-            !p_wlin=hn(p_indx(i,1,1),p_indx(i,2,1))   !内水位(入口側水位)
+			!140602p_wlin=h(p_indx(i,1,1),p_indx(i,2,1))   !�?水�?(入口側水�?)
+            !p_wlin=hn(p_indx(i,1,1),p_indx(i,2,1))   !�?水�?(入口側水�?)
 
             
 L5:         do l=1,p_mxindx(i)
             q_p=0.0d0  !140602念のためゼロクリア	!take160401
 
-			!ポンプ入口地点の水深がhmin以下(演算誤差考慮)の場合何もしない
-            p_wlin=hn(p_indx(i,1,l),p_indx(i,2,l))   !内水位(入口側水位)
+			!ポンプ�?�口地点の水深がhmin以�?(演算誤差�?慮)の場合何もしな�?
+            p_wlin=hn(p_indx(i,1,l),p_indx(i,2,l))   !�?水�?(入口側水�?)
 
             !if(p_wlin<=eta(p_indx(i,1,1),p_indx(i,2,1))+hmin+1.0e-6) cycle L1
             if(p_wlin>=eta(p_indx(i,1,l),p_indx(i,2,l))+hmin+1.0e-6) then
 
-			if(p_method(i)==0) then     !ポンプ排水量が自動の場合
+			if(p_method(i)==0) then     !ポンプ排水量が自動�?�場�?
 				if(p_wlin>=p_startope(i).and.p_wlin<p_stopope(i)) then
 					q_p=p_qmax(i)
                     qlim=(p_wlin-p_startope(i))*area(p_indx(i,1,l),p_indx(i,2,l))/dt
@@ -3031,7 +3031,7 @@ L5:         do l=1,p_mxindx(i)
 				else
 					q_p=0.0d0
 				end if
-			elseif(p_method(i)==1) then !ポンプ排水量が手動の場合
+			elseif(p_method(i)==1) then !ポンプ排水量が手動の場�?
 				if(time<=0.0d0) then
 					q_p=p_qout(i,1)
 				else if(time>=p_time(i,p_size(i))) then
@@ -3051,7 +3051,7 @@ L5:         do l=1,p_mxindx(i)
 
 			!移動可能量で制御
 			if(qlim<q_p) q_p=qlim
-            q_swap(p_indx(i,1,l),p_indx(i,2,l))=q_swap(p_indx(i,1,l),p_indx(i,2,l))-q_p !入口セル(流出)
+            q_swap(p_indx(i,1,l),p_indx(i,2,l))=q_swap(p_indx(i,1,l),p_indx(i,2,l))-q_p !入口セル(流�?�)
             q_pin(i)=q_pin(i)+q_p !take160401
 			!出力用140602
 			p_qswap(i)=-q_p
@@ -3060,13 +3060,13 @@ L5:         do l=1,p_mxindx(i)
 
             end do L5  
 
-			!出口セルが存在する場合
+			!出口セルが存在する場�?
 L2:		do j=1,p_num
 				if(i==j) cycle L2
-				if(p_inout(j)==0) cycle L2  !入口セルの場合
-				if(p_couple_num(i)/=p_couple_num(j)) cycle L2   !Gate番号の一致の確認
-!take160401                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_p !出口セル(流入)
-                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_pin(i) !出口セル(流入)
+				if(p_inout(j)==0) cycle L2  !入口セルの場�?
+				if(p_couple_num(i)/=p_couple_num(j)) cycle L2   !Gate番号の一致の確�?
+!take160401                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_p !出口セル(流�?�)
+                q_swap(p_indx(j,1,1),p_indx(j,2,1))=q_swap(p_indx(j,1,1),p_indx(j,2,1))+q_pin(i) !出口セル(流�?�)
 				!出力用140602
 !take160401                p_qswap(j)=q_p
                 p_qswap(j)=q_pin(i)
@@ -3074,16 +3074,16 @@ L2:		do j=1,p_num
 		end do L1
         deallocate(q_pin) !take160401
 
-		!出口側にポンプ排水量をデータで与える場合
+		!出口側にポンプ排水量を�?ータで与える�?��?
 L3:	do i=1,p_num
 			q_p=0.0d0  !140602念のためゼロクリア
-			if(p_inout(i)==0) cycle L3  !入口セルの場合
+			if(p_inout(i)==0) cycle L3  !入口セルの場�?
 L4:		do j=1,p_num
 				if(i==j) cycle L4
-				if(p_couple_num(i)==p_couple_num(j)) cycle L3 !PUMP番号の一致の確認
+				if(p_couple_num(i)==p_couple_num(j)) cycle L3 !PUMP番号の一致の確�?
 			end do L4
 
-			!PUMPが出口のみの場合
+			!PUMPが�?�口のみの場�?
 			if(time<=0.0d0) then
 				q_p=p_qout(i,1)
 			else if(time>=p_time(i,p_size(i))) then
@@ -3097,7 +3097,7 @@ L4:		do j=1,p_num
 				end do
 			end if
 
-			q_swap(p_indx(i,1,1),p_indx(i,2,1))=q_swap(p_indx(i,1,1),p_indx(i,2,1))+q_p !出口セル(流入)
+			q_swap(p_indx(i,1,1),p_indx(i,2,1))=q_swap(p_indx(i,1,1),p_indx(i,2,1))+q_p !出口セル(流�?�)
 			!出力用140602
 			p_qswap(j)=q_p
 
