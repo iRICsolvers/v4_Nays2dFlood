@@ -1,5 +1,5 @@
 ! ---------------------------------------- !
-!      ?¿½?¿½?¿½?¿½ÌŒv?¿½Z?¿½ÉŠÖ‚ï¿½?¿½éƒ‚ï¿½W?¿½?¿½?¿½[?¿½?¿½?¿½Q      !
+!      —¬‚ê‚ÌŒvŽZ‚ÉŠÖ‚·‚éƒ‚ƒWƒ…[ƒ‹ŒQ         !
 ! ---------------------------------------- !
 
 module bound
@@ -175,7 +175,7 @@ module bound
 		end do
 !
 
-		! ---- ?¿½?¿½?¿½×‚Ä‚Ì‘ï¿½?¿½?¿½?¿½?¿½?¿½E?¿½?¿½?¿½?¿½?¿½ÅƒX?¿½?¿½?¿½b?¿½v?¿½?¿½?¿½?¿½?¿½?¿½ ---- (newgrd?¿½p)
+		! ---- ‚·‚×‚Ä‚Ì‘¤•û‹«ŠEðŒ‚ÅƒXƒŠƒbƒv‚ð‰¼’è ---- (newgrd—p)
 
 !$omp do
 		do i=0,nx
@@ -427,11 +427,11 @@ module non_advec_1
 						uy_up = (uy(i,j)+uy(i+1,j))*.5d0
 						vv_up = dsqrt(ux_up**2d0+uy_up**2d0)
 						c_xi = -(alpha(i,j,1)*yun(i,j)**2d0+alpha(i,j,2)*yun(i,j)*v_up+alpha(i,j,3)*v_up**2d0)
-                        c_xi = c_xi*gam_e_up(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q hamaki
+                        c_xi = c_xi*gam_e_up(i,j)	!Œš•¨‘jŠQ hamaki
 						c_xi_shear = g*sn_up(i,j)**2d0/hs_up**1.33333
-                        c_xi_shear = c_xi_shear*gam_v_up(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½?¿½@hamaki
-!h						c_xi_shear = c_xi_shear + 0.5*0.383*(1-gam_v_up(i,j))	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½?¿½@hamaki
-						c_xi_shear = c_xi_shear + 0.5*cdd*(1-gam_v_up(i,j))	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½?¿½@hamaki
+                        c_xi_shear = c_xi_shear*gam_v_up(i,j)	!Œš•¨‘jŠQ—¦ hamaki
+!h						c_xi_shear = c_xi_shear + 0.5*0.383*(1-gam_v_up(i,j))	!Œš•¨‘jŠQ—¦ hamaki
+						c_xi_shear = c_xi_shear + 0.5*cdd*(1-gam_v_up(i,j))	!Œš•¨‘jŠQ—¦ hamaki
 						c_veg = (cd_veg(i,j)+cd_veg(i+1,j))*.5
 						c_xi_shear = c_xi_shear+c_veg
 
@@ -470,7 +470,7 @@ module non_advec_1
 						end if
 						
 						p_xi = -g*(beta(i,j,1)*dhdxi+beta(i,j,2)*dhdet)
-						p_xi = p_xi*gam_v_up(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+						p_xi = p_xi*gam_v_up(i,j)	!Œš•¨‘jŠQ—¦ hamaki
 
 						yun(i,j) = (yu(i,j)+(c_xi+p_xi)*dt)/(1.d0-f_xi*dt)
 
@@ -479,7 +479,7 @@ module non_advec_1
 					end if
 					
 					q_xi(i,j) = yun(i,j)*hs_up*2.d0/(sj(i,j)+sj(i+1,j))
-					q_xi(i,j) = q_xi(i,j)*gam_e_up(i,j)		!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+					q_xi(i,j) = q_xi(i,j)*gam_e_up(i,j)		!Œš•¨‘jŠQ—¦ hamaki
                 end do
 			end do
 !
@@ -503,11 +503,11 @@ module non_advec_1
 						uy_vp = (uy(i,j)+uy(i,j+1))*.5
 						vv_vp = dsqrt(ux_vp**2d0+uy_vp**2d0)
 						c_et = -(alpha(i,j,4)*u_vp**2d0+alpha(i,j,5)*u_vp*yvn(i,j)+alpha(i,j,6)*yvn(i,j)**2d0)
-						c_et = c_et*gam_e_vp(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+						c_et = c_et*gam_e_vp(i,j)	!Œš•¨‘jŠQ—¦ hamaki
                         c_et_shear = g*sn_vp(i,j)**2d0/hs_vp**1.33333
-						c_et_shear = c_et_shear*gam_v_vp(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
-!						c_et_shear = c_et_shear + 0.5*0.383*(1-gam_v_vp(i,j))	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
-						c_et_shear = c_et_shear + 0.5*cdd*(1-gam_v_vp(i,j))	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+						c_et_shear = c_et_shear*gam_v_vp(i,j)	!Œš•¨‘jŠQ—¦ hamaki
+!						c_et_shear = c_et_shear + 0.5*0.383*(1-gam_v_vp(i,j))	!Œš•¨‘jŠQ—¦ hamaki
+						c_et_shear = c_et_shear + 0.5*cdd*(1-gam_v_vp(i,j))	!Œš•¨‘jŠQ—¦ hamaki
 						c_veg = (cd_veg(i,j)+cd_veg(i,j+1))*.5
 						c_et_shear = c_et_shear+c_veg
 
@@ -546,7 +546,7 @@ module non_advec_1
 						end if
 				
 						p_et = -g*(beta(i,j,3)*dhdxi+beta(i,j,4)*dhdet)
-						p_et = p_et*gam_v_vp(i,j)	!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+						p_et = p_et*gam_v_vp(i,j)	!Œš•¨‘jŠQ—¦ hamaki
                         
 						yvn(i,j) = (yv(i,j)+(c_et+p_et)*dt)/(1.d0-f_et*dt)
 						
@@ -555,7 +555,7 @@ module non_advec_1
 					end if
 			
 					q_et(i,j) = yvn(i,j)*hs_vp*2.d0/(sj(i,j)+sj(i,j+1))
-					q_et(i,j) = q_et(i,j)*gam_e_vp(i,j)		!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+					q_et(i,j) = q_et(i,j)*gam_e_vp(i,j)		!Œš•¨‘jŠQ—¦ hamaki
 				end do
 			end do
 !
@@ -573,16 +573,16 @@ module non_advec_1
 				do i=1,nx-1
 					if( ijo_in(i,j)==1 ) goto 201
 						div = (-q_xi(i-1,j)+q_xi(i,j))*r_dxi+(-q_et(i,j-1)+q_et(i,j))*r_det	
-						if(j_qbl == 0) then	!h?¿½?¿½?¿½?¿½?¿½Ö‚ÌZ?¿½?¿½?¿½?¿½?¿½l?¿½?¿½?¿½?¿½?¿½È‚ï¿½?¿½ê?
+						if(j_qbl == 0) then	!hŒš•¨‚Ö‚ÌZ…‚ðl—¶‚µ‚È‚¢ê‡
 							hsta                 = h(i,j)-div*dt*sj(i,j)/gam_v(i,j)+cell_discharge(i,j)*dt
 							if( j_rain>=2 ) then
-								if( hs(i,j)<=hmin .and. rain_t2(i,j)<=0.)	rain_t2(i,j)=0.	!h151225 NegativeRain?¿½Î‰ï¿½?¿½Ì”O?¿½Ì‚ï¿½?¿½ßï¿½?¿½?¿½
+								if( hs(i,j)<=hmin .and. rain_t2(i,j)<=0.)	rain_t2(i,j)=0.	!h151225 NegativeRain‘Î‰ž‚Ì”O‚Ì‚½‚ßˆ—
 								hsta             = h(i,j)-div*dt*sj(i,j)/gam_v(i,j)+cell_discharge(i,j)*dt+rain_t2(i,j)*dt
 							end if
-						else				!h?¿½?¿½?¿½?¿½?¿½Ö‚ÌZ?¿½?¿½?¿½?¿½?¿½l?¿½?¿½?¿½?¿½?¿½?¿½ê?
+						else				!hŒš•¨‚Ö‚ÌZ…‚ðl—¶‚·‚éê‡
 							hsta                 = h(i,j)-div*dt*sj(i,j)+cell_discharge(i,j)*dt
 							if( j_rain>=2 ) then
-								if( hs(i,j)<=hmin .and. rain_t2(i,j)<=0.)	rain_t2(i,j)=0.	!h151225 NegativeRain?¿½Î‰ï¿½?¿½Ì”O?¿½Ì‚ï¿½?¿½ßï¿½?¿½?¿½
+								if( hs(i,j)<=hmin .and. rain_t2(i,j)<=0.)	rain_t2(i,j)=0.	!h151225 NegativeRain‘Î‰ž‚Ì”O‚Ì‚½‚ßˆ—
 								hsta             = h(i,j)-div*dt*sj(i,j)+cell_discharge(i,j)*dt+rain_t2(i,j)*dt
 							end if
 						end if
@@ -682,7 +682,7 @@ module diffusion_m		! ----------------------------------------------------------
 			uvis_y(i,ny) = 0.d0
 		end do
 !
-			!	---- ?¿½\?¿½?¿½?¿½?¿½?¿½Ì–ï¿½?¿½C?¿½Íl?¿½?¿½?¿½È‚ï¿½ ----
+			!	---- \‘¢•¨‚Ì–€ŽC‚Íl‚¦‚È‚¢ ----
 
 !		do i=1,nx
 !			do j=1,ny-1
@@ -710,7 +710,7 @@ module diffusion_m		! ----------------------------------------------------------
 			do i=1,nx-1
 				uvis=(-uvis_x(i,j)+uvis_x(i+1,j))*r_dxi*xi_r_up(i,j)	&
 						+(-uvis_y(i,j-1)+uvis_y(i,j))*r_det*et_r(i,j)
-				uvis=uvis*gam_e_up(i,j)		!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+				uvis=uvis*gam_e_up(i,j)		!Œš•¨‘jŠQ—¦ hamaki
                 yun(i,j)=yun(i,j)+uvis*dt
 			end do
 		end do
@@ -731,7 +731,7 @@ module diffusion_m		! ----------------------------------------------------------
 			end do
 		end do
 
-			!	---- ?¿½\?¿½?¿½?¿½?¿½?¿½Ì–ï¿½?¿½C?¿½Íl?¿½?¿½?¿½È‚ï¿½ ----
+			!	---- \‘¢•¨‚Ì–€ŽC‚Íl‚¦‚È‚¢ ----
 
 !		do i=1,nx-1
 !			do j=1-j_side1,ny-1+j_side2
@@ -766,7 +766,7 @@ module diffusion_m		! ----------------------------------------------------------
 			do i=2,nx-1
 				vvis=(-vvis_x(i-1,j)+vvis_x(i,j))*r_dxi*xi_r(i,j)	&
 					  +(-vvis_y(i,j)+vvis_y(i,j+1))*r_det*et_r_vp(i,j)
-				vvis=vvis*gam_e_vp(i,j)		!?¿½?¿½?¿½?¿½?¿½j?¿½Q?¿½?¿½ hamaki
+				vvis=vvis*gam_e_vp(i,j)		!Œš•¨‘jŠQ—¦ hamaki
                 yvn(i,j)=yvn(i,j)+vvis*dt
 			end do
 		end do
